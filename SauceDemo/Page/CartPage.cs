@@ -26,11 +26,11 @@ namespace SauceDemo.Page
             return new InventoryPage();
         }
 
-        public CheckoutPage GoToCheckoutPage_WhenCartHasItems()
+        public CheckoutStepOnePage GoToCheckoutPage_WhenCartHasItems()
         {
             checkout.Click();
 
-            return new CheckoutPage();
+            return new CheckoutStepOnePage();
         }
 
         public CartPage GoToCheckoutPage_WhenCartIsEmpty()
