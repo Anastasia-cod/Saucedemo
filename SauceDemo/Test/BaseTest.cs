@@ -4,8 +4,8 @@ using SauceDemo.Page;
 
 namespace SauceDemo.Test
 {
-	public class BaseTest
-	{
+    public class BaseTest
+    {
         public LoginPage LoginPage { get; set; }
 
         [SetUp]

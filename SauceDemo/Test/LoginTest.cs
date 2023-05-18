@@ -4,8 +4,8 @@ using SauceDemo.Page;
 
 namespace SauceDemo.Test
 {
-	public class LoginTest : BaseTest
-	{
+    public class LoginTest : BaseTest
+    {
         [Test, Category("Positive")]
         public void SuccessfullLogin_StandartUser()
         {

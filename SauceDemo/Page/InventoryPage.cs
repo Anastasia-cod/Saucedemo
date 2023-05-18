@@ -8,7 +8,6 @@ namespace SauceDemo.Page
 {
     public class InventoryPage : BasePage
     {
-        TextLink shoppingCartLink = new TextLink(By.ClassName("shopping_cart_link"));
         TextLink inventoryItemLink = new TextLink(By.XPath("//div[@class='inventory_item_name']"));
         TextLink backpackLink = new TextLink(By.XPath("//div[text()='Sauce Labs Backpack']"));
         TextLink tShirtLink = new TextLink(By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']"));
@@ -22,11 +21,11 @@ namespace SauceDemo.Page
             return inventoryItemLink.CheckIsDisplayed();
         }
 
-        public CartPage GoToCartPage_ClickShoppingCartLink()
+        public ItemInfoPage GoToItemInfoPage_ClickToBackpackLink()
         {
-            shoppingCartLink.Click();
+            backpackLink.Click();
 
-            return new CartPage();
+            return new ItemInfoPage();
         }
 
         public string GetBackpackTitle()

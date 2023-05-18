@@ -5,8 +5,8 @@ using SauceDemo.Page;
 
 namespace SauceDemo.Test
 {
-	public class SmokeTest : BaseTest
-	{
+    public class SmokeTest : BaseTest
+    {
         [Test, Category("Positive")]
         public void SmokeTest_StandartUser()
         {

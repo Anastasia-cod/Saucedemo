@@ -7,12 +7,19 @@ using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
-    public class LoginPage : BasePage
+    public class LoginPage
     {
+        public IWebDriver Driver { get; set; }
+
         Input userName = new Input("user-name");
         Input password = new Input("password");
         Button login = new Button("login-button");
         By errorMessageLocator = By.XPath("//h3[@data-test='error']");
+
+        public LoginPage()
+        {
+            Driver = Browser.Instance.Driver;
+        }
 
         public LoginPage OpenLoginPage()
         {
