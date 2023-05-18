@@ -19,6 +19,7 @@
     <PackageReference Include="Selenium.Support" Version="4.9.1" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="113.0.5672.6300" />
     <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +29,14 @@
     <None Remove="Wrappers\" />
     <None Remove="Page\" />
     <None Remove="Test\" />
+    <None Remove="Models\" />
+    <None Remove="Builder\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrappers\" />
     <Folder Include="Page\" />
     <Folder Include="Test\" />
+    <Folder Include="Models\" />
+    <Folder Include="Builder\" />
   </ItemGroup>
 </Project>

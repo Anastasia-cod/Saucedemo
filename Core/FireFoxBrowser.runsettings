@@ -3,8 +3,9 @@
     <!-- Parameters used by tests as runtime -->
     <TestRunParameters>
         <Parameter name="Browser" value="firefox" />
-        <Parameter name="UserName" value="testnewemailqa@mail.ru" />
-        <Parameter name="UserPassword" value="1111" />
+        <Parameter name="StandartUserName" value="standard_user" />
+        <Parameter name="StarndartUserPassword" value="secret_sauce" />
+        <Parameter name="IncorrectPassword" value="secret_auce!" />
 
     </TestRunParameters>
 

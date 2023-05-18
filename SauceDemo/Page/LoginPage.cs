@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 using Core.Selenium;
+using SauceDemo.Models;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
@@ -37,25 +38,25 @@ namespace SauceDemo.Page
             login.Click();
         }
 
-        public InventoryPage SuccessfulLogin(string userName, string password)
+        public InventoryPage SuccessfulLogin(User user)
         {
-            Login(userName, password);
+            Login(user);
 
             return new InventoryPage();
         }
 
-        public LoginPage IncorrectLogin(string userName, string password)
+        public LoginPage IncorrectLogin(User user)
         {
-            Login(userName, password);
+            Login(user);
 
             return this;
         }
 
-        private void Login(string userName, string password)
+        private void Login(User user)
         {
             OpenLoginPage();
-            SetUserName(userName);
-            SetUserPassword(password);
+            SetUserName(user.Name);
+            SetUserPassword(user.Password);
             ClickLoginButton();
         }
     }
