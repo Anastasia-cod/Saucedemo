@@ -28,8 +28,6 @@ namespace Core.Selenium
 
         private Browser()
         {
-            //driver = new ChromeDriver();
-
             switch (TestContext.Parameters.Get("Browser").ToLower())
             {
                 case "chrome":

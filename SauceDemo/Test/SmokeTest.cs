@@ -15,10 +15,10 @@ namespace SauceDemo.Test
 
             var standartUser = builder
                 .SetName(TestContext.Parameters.Get("StandartUserName"))
-                .SetPassword(TestContext.Parameters.Get("StarndartUserPassword"))
-                .SetFirstName("Ivan")
-                .SetLastName("Ivanov")
-                .SetZipOrPostalCode("12345")
+                .SetPassword(TestContext.Parameters.Get("StandartUserPassword"))
+                .SetFirstName("Anna")
+                .SetLastName("Petrova")
+                .SetZipOrPostalCode("220029")
                 .Build();
 
             var expectedMessage = "Thank you for your order!";

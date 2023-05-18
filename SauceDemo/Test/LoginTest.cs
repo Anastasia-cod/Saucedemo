@@ -15,7 +15,7 @@ namespace SauceDemo.Test
 
             User standartUser = builder
                 .SetName(TestContext.Parameters.Get("StandartUserName"))
-                .SetPassword(TestContext.Parameters.Get("StarndartUserPassword"))
+                .SetPassword(TestContext.Parameters.Get("StandartUserPassword"))
                 .Build();
 
             //Action
