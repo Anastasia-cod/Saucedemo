@@ -20,24 +20,18 @@ namespace SauceDemo.Test
         [Test, Category("Positive")]
         public void AddingItemToCart_ViaInventoryPage()
         {
-            //var
-            var expectedAddedItem = "Sauce Labs Bolt T-Shirt";
-
             //Action
             var cartPage = new InventoryPage()
                 .AddTShirtToCart()
                 .GoToCartPage_ClickShoppingCartLink();
 
             //Assert
-            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo(expectedAddedItem));
+            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo("Sauce Labs Bolt T-Shirt"));
         }
 
         [Test, Category("Positive")]
         public void AddingItemToCartAndRemovingItemFromCart_ViaInventoryPage()
         {
-            //var
-            var expectedAddedItem = "Sauce Labs Backpack";
-
             //Action
             var cartPage = new InventoryPage()
                 .AddTShirtToCart()
@@ -46,15 +40,12 @@ namespace SauceDemo.Test
                 .GoToCartPage_ClickShoppingCartLink();
 
             //Assert
-            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo(expectedAddedItem));
+            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo("Sauce Labs Backpack"));
         }
 
         [Test, Category("Positive")]
         public void CheckSwitchingToItemInfoPageFromInventoryPage()
         {
-            //var
-            var expectedTitle = "Sauce Labs Backpack";
-
             //Action
             var itemInfoPage = new InventoryPage()
                 .GoToItemInfoPage_ClickToBackpackLink();
@@ -63,7 +54,7 @@ namespace SauceDemo.Test
             Assert.Multiple(() =>
             {
                 Assert.That(itemInfoPage.CheckBackPackItemLinkIsDisplayed(), Is.True);
-                Assert.That(itemInfoPage.GetBackpackTitle, Is.EqualTo(expectedTitle));
+                Assert.That(itemInfoPage.GetBackpackTitle, Is.EqualTo("Sauce Labs Backpack"));
             });
             
         }
@@ -71,9 +62,6 @@ namespace SauceDemo.Test
         [Test, Category("Positive")]
         public void AddingItemToCart_ViaItemInfoPage()
         {
-            //var
-            var expectedAddedItem = "Sauce Labs Backpack";
-
             //Action
             var cartPage = new InventoryPage()
                 .GoToItemInfoPage_ClickToBackpackLink()
@@ -81,15 +69,12 @@ namespace SauceDemo.Test
                 .GoToCartPage_ClickShoppingCartLink();
 
             //Assert
-            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo(expectedAddedItem));
+            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo("Sauce Labs Backpack"));
         }
 
         [Test, Category("Positive")]
         public void AddingItemToCartViaInventoryPage_AndRemovingItemFromCartViaItemInfoPage()
         {
-            //var
-            var expectedAddedItem = "Sauce Labs Bolt T-Shirt";
-
             //Action
             var cartPage = new InventoryPage()
                 .AddTShirtToCart()
@@ -99,7 +84,7 @@ namespace SauceDemo.Test
                 .GoToCartPage_ClickShoppingCartLink();
 
             //Assert
-            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo(expectedAddedItem));
+            Assert.That(cartPage.GetTitleFirstAddedItem(), Is.EqualTo("Sauce Labs Bolt T-Shirt"));
         }
     }
 }
