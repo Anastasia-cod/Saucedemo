@@ -11,8 +11,6 @@ namespace SauceDemo.Builder
 
         public static User StandartUser => new User
         {
-            //Name = "standard_user",
-            //Password = "secret_sauce",
             Name = TestContext.Parameters.Get("StandartUserName"),
             Password = TestContext.Parameters.Get("StarndartUserPassword"),
             FirstName = Faker.Internet.UserName(lastName:""),
@@ -22,8 +20,6 @@ namespace SauceDemo.Builder
 
         public static User StandartUserWithIncorrectPassword => new User
         {
-            //Name = "standard_user",
-            //Password = "secret_sauce1",
             Name = TestContext.Parameters.Get("StandartUserName"),
             Password = TestContext.Parameters.Get("IncorrectPassword"),
         };
