@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 using Core.Selenium;
+using OpenQA.Selenium;
 using SauceDemo.Models;
 using SauceDemo.Wrappers;
 
@@ -11,6 +12,7 @@ namespace SauceDemo.Page
         Input userName = new Input("user-name");
         Input password = new Input("password");
         Button login = new Button("login-button");
+        Text error = new Text(By.XPath("//h3[@data-test='error']"));
 
         public LoginPage OpenLoginPage()
         {
@@ -58,6 +60,16 @@ namespace SauceDemo.Page
             SetUserName(user.Name);
             SetUserPassword(user.Password);
             ClickLoginButton();
+        }
+
+        public bool ErrorMessageIsDisplayed()
+        {
+            return error.CheckIsDisplayed();
+        }
+
+        public string GetErrorMessage_WhenInvalidCredentials()
+        {
+            return error.GetText();
         }
     }
 }

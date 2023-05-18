@@ -28,26 +28,27 @@ namespace Core.Selenium
 
         private Browser()
         {
-            switch (TestContext.Parameters.Get("Browser").ToLower())
-            {
-                case "chrome":
+            driver = new ChromeDriver();
+            //switch (TestContext.Parameters.Get("Browser").ToLower())
+            //{
+            //    case "chrome":
 
-                    if (bool.Parse(TestContext.Parameters.Get("Headless")!))
-                    {
-                        ChromeOptions options = new ChromeOptions();
-                        options.AddArgument("--headless");
-                        driver = new ChromeDriver(options);
-                    }
-                    else
-                    {
-                        driver = new ChromeDriver();
-                    }
+            //        if (bool.Parse(TestContext.Parameters.Get("Headless")!))
+            //        {
+            //            ChromeOptions options = new ChromeOptions();
+            //            options.AddArgument("--headless");
+            //            driver = new ChromeDriver(options);
+            //        }
+            //        else
+            //        {
+            //            driver = new ChromeDriver();
+            //        }
 
-                    break;
-                case "firefox":
-                    driver = new FirefoxDriver();
-                    break;
-            }
+            //        break;
+            //    case "firefox":
+            //        driver = new FirefoxDriver();
+            //        break;
+            //}
 
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);

@@ -11,7 +11,7 @@ namespace SauceDemo.Test
         [SetUp]
         public void SetUp()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/");
+            Browser.Instance.NavigateToUrl("https://www.saucedemo.com");
         }
 
         [TearDown]

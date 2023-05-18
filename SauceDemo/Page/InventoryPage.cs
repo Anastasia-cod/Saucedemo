@@ -9,11 +9,11 @@ namespace SauceDemo.Page
     public class InventoryPage : BasePage
     {
         TextLink shoppingCartLink = new TextLink(By.ClassName("shopping_cart_link"));
-        TextLink inventoryItemLink = new TextLink(By.ClassName("inventory_item_name"));
+        TextLink inventoryItemLink = new TextLink(By.XPath("//div[@class='inventory_item_name']"));
         TextLink backpackLink = new TextLink(By.XPath("//div[text()='Sauce Labs Backpack']"));
         TextLink tShirtLink = new TextLink(By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']"));
-        Button addToCart = new Button(By.ClassName("btn btn_primary btn_small btn_inventory"));
-        Button remove = new Button(By.ClassName("btn btn_secondary btn_small btn_inventory"));
+        //Button addToCart = new Button(By.ClassName("btn_primary btn_small btn_inventory"));
+        //Button remove = new Button(By.ClassName("btn btn_secondary btn_small btn_inventory"));
         Button addBackpackToCart = new Button("add-to-cart-sauce-labs-backpack");
         Button addTShirtToCart = new Button("add-to-cart-sauce-labs-bolt-t-shirt");
         Button removeBackPack = new Button("remove-sauce-labs-backpack");
