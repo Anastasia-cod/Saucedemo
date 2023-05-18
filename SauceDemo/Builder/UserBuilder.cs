@@ -5,39 +5,48 @@ using SauceDemo.Models;
 
 namespace SauceDemo.Builder
 {
-    public static class UserBuilder
+    public class UserBuilder
     {
-        static Faker Faker = new Faker();
+        private User user;
 
-        public static User StandartUser => new User
+        public UserBuilder()
         {
-            //Name = "standard_user",
-            //Password = "secret_sauce",
-            Name = TestContext.Parameters.Get("StandartUserName"),
-            Password = TestContext.Parameters.Get("StarndartUserPassword"),
-            FirstName = Faker.Internet.UserName(lastName:""),
-            LastName = Faker.Internet.UserName(firstName:""),
-            ZipPostalCode = Faker.Random.Int(5).ToString(),
-        };
+            user = new User();
+        }
 
-        public static User StandartUserWithIncorrectPassword => new User
+        public UserBuilder SetName(string name)
         {
-            //Name = "standard_user",
-            //Password = "secret_sauce1",
-            Name = TestContext.Parameters.Get("StandartUserName"),
-            Password = TestContext.Parameters.Get("IncorrectPassword"),
-        };
+            user.Name = name;
+            return this;
+        }
 
-        public static User GetRandomUser() => new()
+        public UserBuilder SetPassword(string password)
         {
-            Name = Faker.Internet.Email(provider: "QA_Test.13May"),
-            Password = Faker.Internet.Password(12),
-        };
+            user.Password = password;
+            return this;
+        }
 
-        public static User GetRandomUser(string email) => new()
+        public UserBuilder SetFirstName(string firstName)
         {
-            Name = email,
-            Password = Faker.Internet.Password(13),
-        };
+            user.FirstName = firstName;
+            return this;
+        }
+
+        public UserBuilder SetLastName(string lastName)
+        {
+            user.LastName = lastName;
+            return this;
+        }
+
+        public UserBuilder SetZipOrPostalCode(string zipOrPostalCode)
+        {
+            user.ZipPostalCode = zipOrPostalCode;
+            return this;
+        }
+
+        public User Build()
+        {
+            return user;
+        }
     }
 }

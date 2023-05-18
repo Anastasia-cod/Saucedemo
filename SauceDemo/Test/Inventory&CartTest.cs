@@ -1,4 +1,5 @@
 ﻿using System;
+using Bogus;
 using SauceDemo.Builder;
 using SauceDemo.Page;
 
@@ -12,9 +13,17 @@ namespace SauceDemo.Test
         public void SetUp()
         {
             LoginPage = new LoginPage();
-            var standartuser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
 
-            LoginPage.SuccessfulLogin(standartuser);
+            var standartUser = builder
+                .SetName(TestContext.Parameters.Get("StandartUserName"))
+                .SetPassword(TestContext.Parameters.Get("StarndartUserPassword"))
+                .SetFirstName("Ivan")
+                .SetLastName("Ivanov")
+                .SetZipOrPostalCode("12345")
+                .Build();
+
+            LoginPage.SuccessfulLogin(standartUser);
         }
 
         [Test, Category("Positive")]

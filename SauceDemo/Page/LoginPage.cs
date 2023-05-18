@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
+using SauceDemo.Builder;
 using SauceDemo.Models;
 using SauceDemo.Wrappers;
 
@@ -78,6 +79,7 @@ namespace SauceDemo.Page
         {
             return Driver.FindElement(errorMessageLocator).Text;
         }
+
     }
 }
 

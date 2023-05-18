@@ -11,7 +11,16 @@ namespace SauceDemo.Test
         public void SmokeTest_StandartUser()
         {
             //Var
-            var standartUser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
+
+            var standartUser = builder
+                .SetName(TestContext.Parameters.Get("StandartUserName"))
+                .SetPassword(TestContext.Parameters.Get("StarndartUserPassword"))
+                .SetFirstName("Ivan")
+                .SetLastName("Ivanov")
+                .SetZipOrPostalCode("12345")
+                .Build();
+
             var expectedMessage = "Thank you for your order!";
 
             //Action

@@ -1,5 +1,6 @@
 ﻿using System;
 using SauceDemo.Builder;
+using SauceDemo.Models;
 using SauceDemo.Page;
 
 namespace SauceDemo.Test
@@ -10,7 +11,12 @@ namespace SauceDemo.Test
         public void SuccessfullLogin_StandartUser()
         {
             //Var
-            var standartUser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
+
+            User standartUser = builder
+                .SetName(TestContext.Parameters.Get("StandartUserName"))
+                .SetPassword(TestContext.Parameters.Get("StarndartUserPassword"))
+                .Build();
 
             //Action
             var inventoryPage = new LoginPage()
@@ -24,7 +30,13 @@ namespace SauceDemo.Test
         public void IncorrectLogin_StandartUserWithIncorrectPassword()
         {
             //Var
-            var standartUserWithIncorrectPassword = UserBuilder.StandartUserWithIncorrectPassword;
+            UserBuilder builder = new UserBuilder();
+
+            User standartUserWithIncorrectPassword = builder
+                .SetName(TestContext.Parameters.Get("StandartUserName"))
+                .SetPassword(TestContext.Parameters.Get("IncorrectPassword"))
+                .Build();
+
             var expectedError = "Epic sadface: Username and password do not match any user in this service";
 
             //Action
