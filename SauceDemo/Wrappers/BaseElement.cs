@@ -34,6 +34,16 @@ namespace SauceDemo.Wrappers
         {
             Browser.Driver.FindElement(Locator).Click();
         }
+
+        public string GetText()
+        {
+            return Browser.Driver.FindElement(Locator).Text;
+        }
+
+        public bool CheckIsDisplayed()
+        {
+            return Browser.Driver.FindElement(Locator).Displayed;
+        }
     }
 }
 

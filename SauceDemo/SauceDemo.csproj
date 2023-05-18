@@ -27,9 +27,11 @@
   <ItemGroup>
     <None Remove="Wrappers\" />
     <None Remove="Page\" />
+    <None Remove="Test\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrappers\" />
     <Folder Include="Page\" />
+    <Folder Include="Test\" />
   </ItemGroup>
 </Project>
