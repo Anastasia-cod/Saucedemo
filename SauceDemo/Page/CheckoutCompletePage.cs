@@ -7,7 +7,7 @@ namespace SauceDemo.Page
     public class CheckoutCompletePage : BasePage
     {
         Button backHome = new Button("back-to-products");
-        Text successOrder = new Text(By.XPath("//h2[@class='complete-header']"));
+        By successOrderMessageLocator = By.XPath("//h2[@class='complete-header']");
 
         public InventoryPage ClickBackHomeButton()
         {
@@ -18,12 +18,12 @@ namespace SauceDemo.Page
 
         public bool CheckSuccessOrderMessageIsDislayed()
         {
-            return successOrder.CheckIsDisplayed();
+            return Driver.FindElement(successOrderMessageLocator).Displayed;
         }
 
         public string GetSuccessOrderMessage()
         {
-            return successOrder.GetText();
+            return Driver.FindElement(successOrderMessageLocator).Text;
         }
     }
 }

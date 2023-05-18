@@ -12,7 +12,7 @@ namespace SauceDemo.Page
         Input userName = new Input("user-name");
         Input password = new Input("password");
         Button login = new Button("login-button");
-        Text error = new Text(By.XPath("//h3[@data-test='error']"));
+        By errorMessageLocator = By.XPath("//h3[@data-test='error']");
 
         public LoginPage OpenLoginPage()
         {
@@ -64,12 +64,12 @@ namespace SauceDemo.Page
 
         public bool ErrorMessageIsDisplayed()
         {
-            return error.CheckIsDisplayed();
+            return Driver.FindElement(errorMessageLocator).Displayed;
         }
 
         public string GetErrorMessage_WhenInvalidCredentials()
         {
-            return error.GetText();
+            return Driver.FindElement(errorMessageLocator).Text;
         }
     }
 }
