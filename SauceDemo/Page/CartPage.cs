@@ -11,6 +11,12 @@ namespace SauceDemo.Page
         Button remove = new Button("remove-sauce-labs-backpack");
         Button continueShopping = new Button("continue-shopping");
         Button checkout = new Button("checkout");
+        TextLink firstAddedItemLink = new TextLink(By.ClassName("inventory_item_name"));
+
+        public string GetTitleFirstAddedItem()
+        {
+            return firstAddedItemLink.GetText();
+        }
 
         public CartPage ClickRemove()
         {
@@ -26,7 +32,7 @@ namespace SauceDemo.Page
             return new InventoryPage();
         }
 
-        public CheckoutStepOnePage GoToCheckoutStepOnePage()
+        public CheckoutStepOnePage GoToCheckoutStepOnePage_ClickCheckoutButton()
         {
             checkout.Click();
 

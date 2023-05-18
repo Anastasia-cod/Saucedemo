@@ -18,8 +18,9 @@ namespace SauceDemo.Test
             var checkoutCompletePage = new LoginPage()
                 .SuccessfulLogin(standartUser)
                 .AddTShirtToCart()
-                .GoToCartPage()
-                .GoToCheckoutStepOnePage()
+                .AddBackPackToCart()
+                .GoToCartPage_ClickShoppingCartLink()
+                .GoToCheckoutStepOnePage_ClickCheckoutButton()
                 .FillInAll_RequiredUserDetails(standartUser)
                 .ClickFinishButton();
 
