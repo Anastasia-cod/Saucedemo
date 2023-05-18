@@ -6,8 +6,6 @@ namespace SauceDemo.Test
 {
     public class Inventory_CartTest : BaseTest
     {
-        public LoginPage LoginPage { get; set; }
-
         [SetUp]
         public void SetUp()
         {

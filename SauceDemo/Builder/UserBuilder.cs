@@ -12,7 +12,7 @@ namespace SauceDemo.Builder
         public static User StandartUser => new User
         {
             Name = TestContext.Parameters.Get("StandartUserName"),
-            Password = TestContext.Parameters.Get("StandartUserPassword"),
+            Password = TestContext.Parameters.Get("StarndartUserPassword"),
             FirstName = Faker.Internet.UserName(lastName:""),
             LastName = Faker.Internet.UserName(firstName:""),
             ZipPostalCode = Faker.Random.Int(5).ToString(),

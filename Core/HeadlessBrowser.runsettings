@@ -5,7 +5,7 @@
         <Parameter name="Browser" value="chrome" />
         <Parameter name="Headless" value="true" />
         <Parameter name="StandartUserName" value="standard_user" />
-        <Parameter name="StandartUserPassword" value="secret_sauce" />
+        <Parameter name="StarndartUserPassword" value="secret_sauce" />
         <Parameter name="IncorrectPassword" value="secret_auce!" />
 
     </TestRunParameters>
