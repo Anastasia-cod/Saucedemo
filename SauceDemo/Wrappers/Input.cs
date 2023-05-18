@@ -12,5 +12,16 @@ namespace SauceDemo.Wrappers
         public Input(string locator) : base($"{locator}")
         {
         }
+
+        public void FillIn(string message)
+        {
+            Browser.Driver.FindElement(Locator).SendKeys(message);
+        }
+
+        public void UpdateValue(string message)
+        {
+            Browser.Driver.FindElement(Locator).Clear();
+            Browser.Driver.FindElement(Locator).SendKeys(message);
+        }
     }
 }
