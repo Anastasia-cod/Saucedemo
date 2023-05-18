@@ -10,7 +10,6 @@ namespace SauceDemo.Page
         public IWebDriver Driver { get; set; }
         TextLink shoppingCartLink = new TextLink(By.ClassName("shopping_cart_link"));
 
-
         public BasePage()
         {
             Driver = Browser.Instance.Driver;
