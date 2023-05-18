@@ -2,6 +2,7 @@
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
+using SauceDemo.Models;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
@@ -9,28 +10,28 @@ namespace SauceDemo.Page
     public class CheckoutStepOnePage : BasePage
     {
         Input firstName = new Input("first-name");
-        Input lastName = new Input("lastName");
+        Input lastName = new Input("last-name");
         Input zipOrPostalCode = new Input("postal-code");
         Button cancel = new Button("cancel");
         Button continueButton = new Button("continue");
 
-        public CheckoutStepOnePage SetFirstName(string firstName)
+        public CheckoutStepOnePage SetFirstName(User user)
         {
-            this.firstName.FillIn(firstName);
+            this.firstName.FillIn(user.FirstName);
 
             return this;
         }
 
-        public CheckoutStepOnePage SetLastName(string lastName)
+        public CheckoutStepOnePage SetLastName(User user)
         {
-            this.lastName.FillIn(lastName);
+            this.lastName.FillIn(user.LastName);
 
             return this;
         }
 
-        public CheckoutStepOnePage SetZipOrPostalCode(string zipOrPostalCode)
+        public CheckoutStepOnePage SetZipOrPostalCode(User user)
         {
-            this.zipOrPostalCode.FillIn(zipOrPostalCode);
+            this.zipOrPostalCode.FillIn(user.ZipPostalCode);
 
             return this;
         }
@@ -47,25 +48,26 @@ namespace SauceDemo.Page
             continueButton.Click();
         }
 
-        public CheckOutStepTwoPage FillInAll_RequiredUserDetails(string firstName, string lastName, string zipOrPostalCode)
+        public CheckOutStepTwoPage FillInAll_RequiredUserDetails(User user)
         {
-            FillInUserDetaildInfo_ClickContinueButton(firstName, lastName, zipOrPostalCode);
+            FillInUserDetaildInfo_ClickContinueButton(user);
 
             return new CheckOutStepTwoPage();
         }
 
-        public CheckoutStepOnePage FillInNotAll_RequiredUserDetails(string firstName, string lastName, string zipOrPostalCode)
+        public CheckoutStepOnePage FillInNotAll_RequiredUserDetails(User user)
         {
-            FillInUserDetaildInfo_ClickContinueButton(firstName, lastName, zipOrPostalCode);
+            FillInUserDetaildInfo_ClickContinueButton(user);
 
             return this;
         }
 
-        private void FillInUserDetaildInfo_ClickContinueButton(string firstName, string lastName, string zipOrPostalCode)
+        private void FillInUserDetaildInfo_ClickContinueButton(User user)
         {
-            SetFirstName(firstName);
-            SetLastName(lastName);
-            SetZipOrPostalCode(zipOrPostalCode);
+            SetFirstName(user);
+            SetLastName(user);
+            SetZipOrPostalCode(user);
+            ClickContinueButton();
         }
     }
 }

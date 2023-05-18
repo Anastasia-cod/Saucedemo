@@ -24,11 +24,11 @@ namespace SauceDemo.Page
             return inventoryItemLink.CheckIsDisplayed();
         }
 
-        public CheckoutStepOnePage GoToCheckoutStepOnePage()
+        public CartPage GoToCartPage()
         {
             shoppingCartLink.Click();
 
-            return new CheckoutStepOnePage();
+            return new CartPage();
         }
 
         public string GetBackpackTitle()

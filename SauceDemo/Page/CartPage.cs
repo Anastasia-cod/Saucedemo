@@ -6,7 +6,7 @@ using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
-    public class CartPage
+    public class CartPage : BasePage
     {
         Button remove = new Button("remove-sauce-labs-backpack");
         Button continueShopping = new Button("continue-shopping");
@@ -26,7 +26,7 @@ namespace SauceDemo.Page
             return new InventoryPage();
         }
 
-        public CheckoutStepOnePage GoToCheckoutPage_WhenCartHasItems()
+        public CheckoutStepOnePage GoToCheckoutStepOnePage()
         {
             checkout.Click();
 
