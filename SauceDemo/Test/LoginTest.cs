@@ -8,7 +8,6 @@ namespace SauceDemo.Test
 {
     public class LoginTest : BaseTest
     {
-
         [Test, Category("Positive")]
         public void SuccessfullLogin_StandartUser()
         {
@@ -16,7 +15,7 @@ namespace SauceDemo.Test
             var standartUser = UserBuilder.StandartUser;
 
             //Action
-            var inventoryPage = new LoginPage(Driver)
+            var inventoryPage = new LoginPage(Driver, true)
                 .SuccessfulLogin(standartUser);
 
             //Assert
@@ -31,7 +30,7 @@ namespace SauceDemo.Test
             var expectedError = "Epic sadface: Username and password do not match any user in this service";
 
             //Action
-            var loginPage = new LoginPage(Driver)
+            var loginPage = new LoginPage(Driver, true)
                 .IncorrectLogin(standartUserWithIncorrectPassword);
 
             //Assert
