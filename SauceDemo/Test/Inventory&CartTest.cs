@@ -6,12 +6,9 @@ namespace SauceDemo.Test
 {
     public class Inventory_CartTest : BaseTest
     {
-        public LoginPage LoginPage { get; set; }
-
         [SetUp]
         public void SetUp()
         {
-            LoginPage = new LoginPage();
             var standartuser = UserBuilder.StandartUser;
 
             LoginPage.SuccessfulLogin(standartuser);
@@ -21,7 +18,7 @@ namespace SauceDemo.Test
         public void AddingItemToCart_ViaInventoryPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = InventoryPage
                 .AddTShirtToCart()
                 .GoToCartPage_ClickShoppingCartLink();
 
@@ -33,7 +30,7 @@ namespace SauceDemo.Test
         public void AddingItemToCartAndRemovingItemFromCart_ViaInventoryPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = InventoryPage
                 .AddTShirtToCart()
                 .AddBackPackToCart()
                 .RemoveTShirtFromCart()
@@ -47,7 +44,7 @@ namespace SauceDemo.Test
         public void CheckSwitchingToItemInfoPageFromInventoryPage()
         {
             //Action
-            var itemInfoPage = new InventoryPage()
+            var itemInfoPage = InventoryPage
                 .GoToItemInfoPage_ClickToBackpackLink();
 
             //Assert
@@ -63,7 +60,7 @@ namespace SauceDemo.Test
         public void AddingItemToCart_ViaItemInfoPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = InventoryPage
                 .GoToItemInfoPage_ClickToBackpackLink()
                 .AddBackpackToCart()
                 .GoToCartPage_ClickShoppingCartLink();
@@ -76,7 +73,7 @@ namespace SauceDemo.Test
         public void AddingItemToCartViaInventoryPage_AndRemovingItemFromCartViaItemInfoPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = InventoryPage
                 .AddTShirtToCart()
                 .GoToItemInfoPage_ClickToBackpackLink()
                 .AddBackpackToCart()

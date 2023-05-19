@@ -2,23 +2,42 @@
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using SauceDemo.Models;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        public IWebDriver Driver { get; set; }
-
         Input userName = new Input("user-name");
         Input password = new Input("password");
         Button login = new Button("login-button");
         By errorMessageLocator = By.XPath("//h3[@data-test='error']");
 
-        public LoginPage()
+        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
-            Driver = Browser.Instance.Driver;
+        }
+
+        public LoginPage(IWebDriver driver) : base(driver, false)
+        {
+        }
+
+        protected override void OpenPage()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+        }
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return login.CheckIsDisplayed();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public LoginPage OpenLoginPage()
@@ -51,7 +70,7 @@ namespace SauceDemo.Page
         {
             Login(user);
 
-            return new InventoryPage();
+            return new InventoryPage(Driver, true);
         }
 
         public LoginPage IncorrectLogin(User user)

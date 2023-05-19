@@ -13,6 +13,31 @@ namespace SauceDemo.Page
         Button checkout = new Button("checkout");
         TextLink firstAddedItemLink = new TextLink(By.ClassName("inventory_item_name"));
 
+        public CartPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        {
+        }
+
+        public CartPage(IWebDriver driver) : base(driver, false)
+        {
+        }
+
+        protected override void OpenPage()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com/cart.html");
+        }
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return continueShopping.CheckIsDisplayed();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public string GetTitleFirstAddedItem()
         {
             return firstAddedItemLink.GetText();
@@ -29,14 +54,14 @@ namespace SauceDemo.Page
         {
             continueShopping.Click();
 
-            return new InventoryPage();
+            return new InventoryPage(Driver, true);
         }
 
         public CheckoutStepOnePage GoToCheckoutStepOnePage_ClickCheckoutButton()
         {
             checkout.Click();
 
-            return new CheckoutStepOnePage();
+            return new CheckoutStepOnePage(Driver, true);
         }
 
         public CartPage GoToCheckoutPage_WhenCartIsEmpty()

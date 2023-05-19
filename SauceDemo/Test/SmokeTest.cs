@@ -15,7 +15,7 @@ namespace SauceDemo.Test
             var expectedMessage = "Thank you for your order!";
 
             //Action
-            var checkoutCompletePage = new LoginPage()
+            var checkoutCompletePage = LoginPage
                 .SuccessfulLogin(standartUser)
                 .AddTShirtToCart()
                 .AddBackPackToCart()

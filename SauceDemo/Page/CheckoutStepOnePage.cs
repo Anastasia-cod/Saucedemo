@@ -15,6 +15,31 @@ namespace SauceDemo.Page
         Button cancel = new Button("cancel");
         Button continueButton = new Button("continue");
 
+        public CheckoutStepOnePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        {
+        }
+
+        public CheckoutStepOnePage(IWebDriver driver) : base(driver, false)
+        {
+        }
+
+        protected override void OpenPage()
+        {
+            Driver.Navigate().GoToUrl("https://www.saucedemo.com/checkout-step-one.html");
+        }
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return continueButton.CheckIsDisplayed();
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
         public CheckoutStepOnePage SetFirstName(User user)
         {
             this.firstName.FillIn(user.FirstName);
@@ -40,7 +65,7 @@ namespace SauceDemo.Page
         {
             cancel.Click();
 
-            return new InventoryPage();
+            return new InventoryPage(Driver, true);
         }
 
         public void ClickContinueButton()
@@ -52,7 +77,7 @@ namespace SauceDemo.Page
         {
             FillInUserDetaildInfo_ClickContinueButton(user);
 
-            return new CheckOutStepTwoPage();
+            return new CheckOutStepTwoPage(Driver, true);
         }
 
         public CheckoutStepOnePage FillInNotAll_RequiredUserDetails(User user)
