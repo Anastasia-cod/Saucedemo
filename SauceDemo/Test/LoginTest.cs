@@ -16,7 +16,7 @@ namespace SauceDemo.Test
             var standartUser = UserBuilder.StandartUser;
 
             //Action
-            var inventoryPage = LoginPage
+            var inventoryPage = new LoginPage(Driver)
                 .SuccessfulLogin(standartUser);
 
             //Assert
@@ -31,14 +31,14 @@ namespace SauceDemo.Test
             var expectedError = "Epic sadface: Username and password do not match any user in this service";
 
             //Action
-            var loginPage_ = LoginPage
+            var loginPage = new LoginPage(Driver)
                 .IncorrectLogin(standartUserWithIncorrectPassword);
 
             //Assert
             Assert.Multiple(() =>
             {
-                Assert.That(LoginPage.ErrorMessageIsDisplayed, Is.True);
-                Assert.That(LoginPage.GetErrorMessage_WhenInvalidCredentials, Is.EqualTo(expectedError));
+                Assert.That(loginPage.ErrorMessageIsDisplayed, Is.True);
+                Assert.That(loginPage.GetErrorMessage_WhenInvalidCredentials, Is.EqualTo(expectedError));
             });
         }
     }

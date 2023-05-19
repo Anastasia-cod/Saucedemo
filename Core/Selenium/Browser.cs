@@ -9,6 +9,25 @@ namespace Core.Selenium
 {
     public class Browser
     {
+        //private IWebDriver? _webDriver;
+
+        //public Browser()
+        //{
+        //    Driver = Configurator.BrowserType.ToLower() switch
+        //    {
+        //        "chrome" => new DriverFactory().GetChromeDriver(),
+        //        "firefox" => new DriverFactory().GetFirefoxDriver(),
+        //        _ => Driver
+        //    };
+
+        //    Driver?.Manage().Window.Maximize();
+        //    Driver?.Manage().Cookies.DeleteAllCookies();
+        //    if (Driver != null) Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+        //}
+
+        //public IWebDriver? Driver { get; set; }
+        //
+
         private static Browser instance = null;
         private IWebDriver driver;
 
@@ -26,7 +45,7 @@ namespace Core.Selenium
 
         public IWebDriver Driver { get { return driver; } }
 
-        private Browser()
+        public Browser()
         {
             switch (TestContext.Parameters.Get("Browser").ToLower())
             {
@@ -58,38 +77,38 @@ namespace Core.Selenium
             driver.Navigate().GoToUrl(url);
         }
 
-        public void ContextClickToElement(IWebElement element)
-        {
-            new Actions(driver)
-              .MoveToElement(element)
-              .ContextClick()
-              .Build()
-              .Perform();
-        }
+        //public void ContextClickToElement(IWebElement element)
+        //{
+        //    new Actions(driver)
+        //      .MoveToElement(element)
+        //      .ContextClick()
+        //      .Build()
+        //      .Perform();
+        //}
 
-        public void ContextClickToElement(By by)
-        {
-            var element = driver.FindElement(by);
-            ContextClickToElement(element);
-        }
+        //public void ContextClickToElement(By by)
+        //{
+        //    var element = driver.FindElement(by);
+        //    ContextClickToElement(element);
+        //}
 
-        public void AcceptAlert()
-        {
-            driver.SwitchTo().Alert().Accept();
-        }
+        //public void AcceptAlert()
+        //{
+        //    driver.SwitchTo().Alert().Accept();
+        //}
 
-        public object ExecuteScript(string script)
-        {
-            try
-            {
-                return ((IJavaScriptExecutor)driver).ExecuteScript(script);
+        //public object ExecuteScript(string script)
+        //{
+        //    try
+        //    {
+        //        return ((IJavaScriptExecutor)driver).ExecuteScript(script);
 
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return null;
+        //    }
+        //}
 
         public void SwitchToFirstWindow()
         {

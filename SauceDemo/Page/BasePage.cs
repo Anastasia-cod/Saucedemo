@@ -8,7 +8,7 @@ namespace SauceDemo.Page
     public abstract class BasePage
     {
         protected static int waitForPageLoadingTime = 60;
-        [ThreadStatic] protected IWebDriver Driver;
+        [ThreadStatic] protected IWebDriver? Driver;
 
         TextLink shoppingCartLink = new TextLink(By.ClassName("shopping_cart_link"));
 

@@ -22,7 +22,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Driver.Navigate().GoToUrl("https://www.saucedemo.com/inventory-item.html?id=4");
+            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/inventory-item.html?id=4");
         }
 
         public override bool IsPageOpened()

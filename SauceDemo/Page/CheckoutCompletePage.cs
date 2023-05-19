@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Selenium;
 using OpenQA.Selenium;
 using SauceDemo.Wrappers;
 
@@ -19,7 +20,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Driver.Navigate().GoToUrl("https://www.saucedemo.com/checkout-complete.html");
+            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/checkout-complete.html");
         }
 
         public override bool IsPageOpened()

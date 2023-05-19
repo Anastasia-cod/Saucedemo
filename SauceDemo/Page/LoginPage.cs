@@ -25,7 +25,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+            Browser.Instance.NavigateToUrl("https://www.saucedemo.com");
         }
 
         public override bool IsPageOpened()
