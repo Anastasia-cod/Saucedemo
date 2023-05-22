@@ -40,13 +40,6 @@ namespace SauceDemo.Page
             }
         }
 
-        public LoginPage OpenLoginPage()
-        {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/");
-
-            return this;
-        }
-
         public LoginPage SetUserName(string name)
         {
             userName.FillIn(name);
@@ -82,7 +75,7 @@ namespace SauceDemo.Page
 
         private void Login(User user)
         {
-            OpenLoginPage();
+            OpenPage();
             SetUserName(user.Name);
             SetUserPassword(user.Password);
             ClickLoginButton();
