@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Net;
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
 using SauceDemo.Models;
+using SauceDemo.Test;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
     public class CheckoutStepOnePage : BasePage
     {
+        private static string endPoint = "checkout-step-one.html";
+
         Input firstName = new Input("first-name");
         Input lastName = new Input("last-name");
         Input zipOrPostalCode = new Input("postal-code");
@@ -25,7 +29,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/checkout-step-one.html");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl + endPoint);
         }
 
         public override bool IsPageOpened()

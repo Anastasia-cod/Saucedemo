@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Net;
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
+using SauceDemo.Test;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
     public class ItemInfoPage : BasePage
     {
+        private static string endPoint = "inventory-item.html?id=4";
+
         TextLink backpackLink = new TextLink(By.XPath("//div[text()='Sauce Labs Backpack']"));
         Button addBackpackToCart = new Button("add-to-cart-sauce-labs-backpack");
         Button removeBackPack = new Button(By.XPath("//button[text()='Remove']"));
+        Button addToCart = new Button("add-to-cart-item-not-found");
 
         public ItemInfoPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
@@ -22,7 +27,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/inventory-item.html?id=4");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl + endPoint);
         }
 
         public override bool IsPageOpened()

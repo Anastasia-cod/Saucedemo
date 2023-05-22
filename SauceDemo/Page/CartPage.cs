@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Net;
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
+using SauceDemo.Test;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
     public class CartPage : BasePage
     {
+        private static string endPoint = "cart.html";
+
         Button remove = new Button("remove-sauce-labs-backpack");
         Button continueShopping = new Button("continue-shopping");
         Button checkout = new Button("checkout");
@@ -23,7 +27,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/cart.html");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl + endPoint);
         }
 
         public override bool IsPageOpened()

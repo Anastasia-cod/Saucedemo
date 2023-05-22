@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Net;
 using Core.Selenium;
 using OpenQA.Selenium;
+using SauceDemo.Test;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
 {
     public class CheckoutCompletePage : BasePage
     {
+        private static string endPoint = "checkout-complete.html";
+
         Button backHome = new Button("back-to-products");
         By successOrderMessageLocator = By.XPath("//h2[@class='complete-header']");
 
@@ -20,7 +24,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/checkout-complete.html");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl + endPoint);
         }
 
         public override bool IsPageOpened()

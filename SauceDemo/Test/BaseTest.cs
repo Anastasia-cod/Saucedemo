@@ -8,6 +8,8 @@ namespace SauceDemo.Test
 {
     public class BaseTest
     {
+        public static readonly string? baseUrl = TestContext.Parameters.Get("URL");
+
         [ThreadStatic] protected static IWebDriver? Driver;
 
         public LoginPage LoginPage { get; set; }
@@ -15,7 +17,7 @@ namespace SauceDemo.Test
         [SetUp]
         public void SetUp()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com");
+            Browser.Instance.NavigateToUrl(baseUrl);
         }
 
         [TearDown]

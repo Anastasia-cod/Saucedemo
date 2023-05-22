@@ -4,6 +4,7 @@ using Core.Selenium;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SauceDemo.Models;
+using SauceDemo.Test;
 using SauceDemo.Wrappers;
 
 namespace SauceDemo.Page
@@ -25,7 +26,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl);
         }
 
         public override bool IsPageOpened()

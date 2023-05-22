@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Xml.Linq;
 using Core.Selenium;
 using OpenQA.Selenium;
@@ -9,6 +10,8 @@ namespace SauceDemo.Page
 {
     public class InventoryPage : BasePage
     {
+        private static string endPoint = "inventory.html";
+
         TextLink inventoryItemLink = new TextLink(By.XPath("//div[@class='inventory_item_name']"));
         TextLink backpackLink = new TextLink(By.XPath("//div[text()='Sauce Labs Backpack']"));
         TextLink tShirtLink = new TextLink(By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']"));
@@ -27,7 +30,7 @@ namespace SauceDemo.Page
 
         protected override void OpenPage()
         {
-            Browser.Instance.NavigateToUrl("https://www.saucedemo.com/inventory.html");
+            Browser.Instance.NavigateToUrl(BaseTest.baseUrl + endPoint);
         }
 
         public override bool IsPageOpened()
