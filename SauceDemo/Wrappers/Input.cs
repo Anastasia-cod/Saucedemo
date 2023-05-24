@@ -3,25 +3,22 @@ using OpenQA.Selenium;
 
 namespace SauceDemo.Wrappers
 {
-    public class Input : BaseElement
+    public class Input
     {
-        public Input(By locator) : base(locator)
+        private UIElement _uiElement;
+
+        public Input(IWebDriver? driver, By @by)
         {
+            _uiElement = new UIElement(driver, @by);
         }
 
-        public Input(string locator) : base($"{locator}")
-        {
-        }
+        public void Click() => _uiElement.Click();
 
-        public void FillIn(string message)
-        {
-            Browser.Driver.FindElement(Locator).SendKeys(message);
-        }
+        public void SendKeys(string text) => _uiElement.SendKeys(text);
 
-        public void UpdateValue(string message)
-        {
-            Browser.Driver.FindElement(Locator).Clear();
-            Browser.Driver.FindElement(Locator).SendKeys(message);
-        }
+        public string Text => _uiElement.Text;
+
+        public bool Displayed => _uiElement.Displayed;
     }
 }
+

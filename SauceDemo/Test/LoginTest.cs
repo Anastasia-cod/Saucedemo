@@ -1,6 +1,8 @@
 ﻿using System;
-using SauceDemo.Builder;
+using Core.Models;
 using SauceDemo.Page;
+using SauceDemo.BaseEntities;
+using Core.Models.Builder;
 
 namespace SauceDemo.Test
 {
@@ -10,10 +12,15 @@ namespace SauceDemo.Test
         public void SuccessfullLogin_StandartUser()
         {
             //Var
-            var standartUser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
+
+            User standartUser = builder
+                .SetName("standard_user")
+                .SetPassword("secret_sauce")
+                .Build();
 
             //Action
-            var inventoryPage = new LoginPage()
+            var inventoryPage = new LoginPage(Driver, true)
                 .SuccessfulLogin(standartUser);
 
             //Assert
@@ -24,11 +31,16 @@ namespace SauceDemo.Test
         public void IncorrectLogin_StandartUserWithIncorrectPassword()
         {
             //Var
-            var standartUserWithIncorrectPassword = UserBuilder.StandartUserWithIncorrectPassword;
+            UserBuilder builder = new UserBuilder();
+
+            User standartUserWithIncorrectPassword = builder
+                .SetName("standard_user")
+                .SetPassword("secret_sauce_1")
+                .Build();
             var expectedError = "Epic sadface: Username and password do not match any user in this service";
 
             //Action
-            var loginPage = new LoginPage()
+            var loginPage = new LoginPage(Driver, true)
                 .IncorrectLogin(standartUserWithIncorrectPassword);
 
             //Assert

@@ -1,55 +1,83 @@
 ﻿using System;
 using System.Xml.Linq;
-using Core.Selenium;
+using Core;
 using OpenQA.Selenium;
 using SauceDemo.Wrappers;
+using SauceDemo.BaseEntities;
 
 namespace SauceDemo.Page
 {
     public class InventoryPage : BasePage
     {
-        TextLink inventoryItemLink = new TextLink(By.XPath("//div[@class='inventory_item_name']"));
-        TextLink backpackLink = new TextLink(By.XPath("//div[text()='Sauce Labs Backpack']"));
-        TextLink tShirtLink = new TextLink(By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']"));
-        Button addBackpackToCart = new Button("add-to-cart-sauce-labs-backpack");
-        Button addTShirtToCart = new Button("add-to-cart-sauce-labs-bolt-t-shirt");
-        Button removeBackPack = new Button("remove-sauce-labs-backpack");
-        Button removeTShirt = new Button("remove-sauce-labs-bolt-t-shirt");
+        private static string END_POINT = "inventory.html";
+
+        By InventoryItemLinkBy = By.XPath("//div[@class='inventory_item_name']");
+        By BackpackLinkBy = By.XPath("//div[text()='Sauce Labs Backpack']");
+        By TShirtLinkBy = By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']");
+        By AddBackpackToCartButtonBy = By.Id("add-to-cart-sauce-labs-backpack");
+        By AddTShirtToCartButtonBy = By.Id("add-to-cart-sauce-labs-bolt-t-shirt");
+        By RemoveBackPackButtonBy = By.Id("remove-sauce-labs-backpack");
+        By RemoveTShirtButtonBy = By.Id("remove-sauce-labs-bolt-t-shirt");
+
+        public InventoryPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        {
+        }
+
+        public InventoryPage(IWebDriver driver) : base(driver, false)
+        {
+        }
+
+        public override void OpenPage()
+        {
+            Driver.Navigate().GoToUrl(BaseTest.BaseUrl + END_POINT);
+        }
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return Driver.FindElement(AddBackpackToCartButtonBy).Displayed;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
         public bool CheckInventoryItemLinkIsDisplayed()
         {
-            return inventoryItemLink.CheckIsDisplayed();
+            return Driver.FindElement(InventoryItemLinkBy).Displayed;
         }
 
         public ItemInfoPage GoToItemInfoPage_ClickToBackpackLink()
         {
-            backpackLink.Click();
+            Driver.FindElement(BackpackLinkBy).Click();
 
-            return new ItemInfoPage();
+            return new ItemInfoPage(Driver, true);
         }
 
         public string GetBackpackTitle()
         {
-            return backpackLink.GetText();
+            return Driver.FindElement(BackpackLinkBy).Text;
         }
 
         public InventoryPage AddBackPackToCart()
         {
-            addBackpackToCart.Click();
+            Driver.FindElement(AddBackpackToCartButtonBy).Click();
 
             return this;
         }
 
         public InventoryPage AddTShirtToCart()
         {
-            addTShirtToCart.Click();
+            Driver.FindElement(AddTShirtToCartButtonBy).Click();
 
             return this;
         }
 
         public InventoryPage RemoveTShirtFromCart()
         {
-            removeTShirt.Click();
+            Driver.FindElement(RemoveTShirtButtonBy).Click();
 
             return this;
         }

@@ -3,15 +3,21 @@ using OpenQA.Selenium;
 
 namespace SauceDemo.Wrappers
 {
-    public class TextLink : BaseElement
+    public class TextLink
     {
-        public TextLink(By locator) : base(locator)
+
+        private UIElement _uiElement;
+
+        public TextLink(IWebDriver? driver, By @by)
         {
+            _uiElement = new UIElement(driver, @by);
         }
 
-        public TextLink(string locator) : base($"{locator}")
-        {
-        }
+        public void Click() => _uiElement.Click();
+
+        public string Text => _uiElement.Text;
+
+        public bool Displayed => _uiElement.Displayed;
     }
 }
 

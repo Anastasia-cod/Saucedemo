@@ -1,7 +1,8 @@
 ﻿using System;
-using SauceDemo.Builder;
-using SauceDemo.Models;
+using Core.Models;
 using SauceDemo.Page;
+using SauceDemo.BaseEntities;
+using Core.Models.Builder;
 
 namespace SauceDemo.Test
 {
@@ -11,11 +12,20 @@ namespace SauceDemo.Test
         public void SmokeTest_StandartUser()
         {
             //Var
-            var standartUser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
+
+            var standartUser = builder
+                .SetName("standard_user")
+                .SetPassword("secret_sauce")
+                .SetFirstName("Anna")
+                .SetLastName("Petrova")
+                .SetZipOrPostalCode("220029")
+                .Build();
+
             var expectedMessage = "Thank you for your order!";
 
             //Action
-            var checkoutCompletePage = new LoginPage()
+            var checkoutCompletePage = new LoginPage(Driver, true)
                 .SuccessfulLogin(standartUser)
                 .AddTShirtToCart()
                 .AddBackPackToCart()

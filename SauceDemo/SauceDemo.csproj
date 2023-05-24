@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
-    <RunSettingsFilePath>$(MSBuildProjectDirectory)\HeadlessBrowser.runsettings</RunSettingsFilePath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +19,9 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="113.0.5672.6300" />
     <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
     <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="WebDriverManager" Version="2.16.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,14 +31,23 @@
     <None Remove="Wrappers\" />
     <None Remove="Page\" />
     <None Remove="Test\" />
-    <None Remove="Models\" />
-    <None Remove="Builder\" />
+    <None Remove="BaseEntities\" />
+    <None Remove="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrappers\" />
     <Folder Include="Page\" />
     <Folder Include="Test\" />
-    <Folder Include="Models\" />
-    <Folder Include="Builder\" />
+    <Folder Include="BaseEntities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

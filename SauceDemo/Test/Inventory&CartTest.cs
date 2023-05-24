@@ -1,6 +1,8 @@
 ﻿using System;
-using SauceDemo.Builder;
+using Core.Models;
 using SauceDemo.Page;
+using SauceDemo.BaseEntities;
+using Core.Models.Builder;
 
 namespace SauceDemo.Test
 {
@@ -9,17 +11,24 @@ namespace SauceDemo.Test
         [SetUp]
         public void SetUp()
         {
-            LoginPage = new LoginPage();
-            var standartuser = UserBuilder.StandartUser;
+            UserBuilder builder = new UserBuilder();
 
-            LoginPage.SuccessfulLogin(standartuser);
+            var standartUser = builder
+                .SetName("standard_user")
+                .SetPassword("secret_sauce")
+                .SetFirstName("Ivan")
+                .SetLastName("Ivanov")
+                .SetZipOrPostalCode("12345")
+                .Build();
+
+            LoginPage.SuccessfulLogin(standartUser);
         }
 
         [Test, Category("Positive")]
         public void AddingItemToCart_ViaInventoryPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = new InventoryPage(Driver, true)
                 .AddTShirtToCart()
                 .GoToCartPage_ClickShoppingCartLink();
 
@@ -31,7 +40,7 @@ namespace SauceDemo.Test
         public void AddingItemToCartAndRemovingItemFromCart_ViaInventoryPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = new InventoryPage(Driver, true)
                 .AddTShirtToCart()
                 .AddBackPackToCart()
                 .RemoveTShirtFromCart()
@@ -45,7 +54,7 @@ namespace SauceDemo.Test
         public void CheckSwitchingToItemInfoPageFromInventoryPage()
         {
             //Action
-            var itemInfoPage = new InventoryPage()
+            var itemInfoPage = new InventoryPage(Driver, true)
                 .GoToItemInfoPage_ClickToBackpackLink();
 
             //Assert
@@ -54,14 +63,14 @@ namespace SauceDemo.Test
                 Assert.That(itemInfoPage.CheckBackPackItemLinkIsDisplayed(), Is.True);
                 Assert.That(itemInfoPage.GetBackpackTitle, Is.EqualTo("Sauce Labs Backpack"));
             });
-            
+
         }
 
         [Test, Category("Positive")]
         public void AddingItemToCart_ViaItemInfoPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = new InventoryPage(Driver, true)
                 .GoToItemInfoPage_ClickToBackpackLink()
                 .AddBackpackToCart()
                 .GoToCartPage_ClickShoppingCartLink();
@@ -74,7 +83,7 @@ namespace SauceDemo.Test
         public void AddingItemToCartViaInventoryPage_AndRemovingItemFromCartViaItemInfoPage()
         {
             //Action
-            var cartPage = new InventoryPage()
+            var cartPage = new InventoryPage(Driver, true)
                 .AddTShirtToCart()
                 .GoToItemInfoPage_ClickToBackpackLink()
                 .AddBackpackToCart()

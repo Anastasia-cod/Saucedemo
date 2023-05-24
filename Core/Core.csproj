@@ -12,11 +12,21 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="113.0.5672.6300" />
     <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
     <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="WebDriverManager" Version="2.16.2" />
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Selenium\" />
+    <None Remove="Utilities\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Enums\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Selenium\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Enums\" />
   </ItemGroup>
 </Project>
