@@ -1,0 +1,60 @@
+﻿<Properties StartupConfiguration="{A759F629-8EDA-4309-8749-85D9A110EF47}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.TAF__TMS__C1onl PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TAF_TMS_C1onl/Tests/LoginTest.cs">
+    <Files>
+      <File FileName="TAF_TMS_C1onl/Utilites/Configuration/Configurator.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Configuration/AppSettings.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/TestData/GeneralProject.json" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/TestDataHelper.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/appsettings.json" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Tests/ProjectsTest.cs" Line="12" Column="35" />
+      <File FileName="TAF_TMS_C1onl/allureConfig.json" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Wrappers/Button.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Wrappers/Input.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Wrappers/Table.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Wrappers/TableRow.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Wrappers/UIElement.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Tests/LoginTest.cs" Line="20" Column="23" />
+      <File FileName="TAF_TMS_C1onl/Tests/BaseTest.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Steps/BaseStep.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Steps/NavigationSteps.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Attributes.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/JsonHelper.cs" Line="1" Column="1" />
+      <File FileName="TAF_TMS_C1onl/NLog.config" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TAF_TMS_C1onl" expanded="True">
+            <Node name="TAF_TMS_C1onl" expanded="True">
+              <Node name="Core" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Pages" expanded="True" />
+              <Node name="Steps" expanded="True" />
+              <Node name="TestData" expanded="True" />
+              <Node name="Tests" expanded="True">
+                <Node name="LoginTest.cs" selected="True" />
+              </Node>
+              <Node name="Utilites" expanded="True">
+                <Node name="Configuration" expanded="True" />
+                <Node name="Helpers" expanded="True" />
+              </Node>
+              <Node name="Wrappers" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="TAF_TMS_C1onl" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
