@@ -6,54 +6,53 @@ using Core.Models.Builder;
 using NUnit.Allure.Core;
 using Allure.Commons;
 using NUnit.Allure.Attributes;
+using SauceDemo.Steps;
+using Core.Utilities.Configuration;
 
 namespace SauceDemo.Test
 {
     public class LoginTest : BaseTest
     {
-        [Test(Description = "Successful login")]
-        [AllureSeverity(SeverityLevel.critical)]
+        [Test(Description = "Successful login with valid credentials")]
+        [AllureSeverity(SeverityLevel.blocker)]
         [AllureOwner("User")]
         [AllureSuite("PassedSuite")]
-        [AllureSubSuite("GUI")]
-        [AllureIssue("TMS-12")]
-        [AllureTms("TMS-13")]
+        [AllureSubSuite("Login")]
+        [AllureIssue("Issue - Login with valid credentials ")]
+        [AllureTms("Login-1.1")]
         [AllureTag("Smoke")]
-        [AllureLink("https://onliner.by")]
-        [Description("Более детализированное описание теста")]
+        [AllureLink("https://www.saucedemo.com/")]
+        [Description("Verifying that standart user with valid credentials can login")]
         public void SuccessfullLogin_StandartUser()
         {
-            //Var
-            UserBuilder builder = new UserBuilder();
-
-            User standartUser = builder
-                .SetName("standard_user")
-                .SetPassword("secret_sauce")
-                .Build();
-
             //Action
-            var inventoryPage = new LoginPage(Driver, true)
-                .SuccessfulLogin(standartUser);
+            NavigationStep.NavigateToLoginPage();
+
+            var inventoryPage = NavigationStep.StandartUserLogin();
 
             //Assert
             Assert.That(inventoryPage.CheckInventoryItemLinkIsDisplayed(), Is.True);
         }
 
-        [Test, Category("Negative")]
-        public void IncorrectLogin_StandartUserWithIncorrectPassword()
+        [Test(Description = "Incorrect login with invalid credentials")]
+        [AllureSeverity(SeverityLevel.normal)]
+        [AllureOwner("User with invalid credentials")]
+        [AllureSuite("PassedSuite")]
+        [AllureSubSuite("Login")]
+        [AllureIssue("Issue - Login with invalid credentials")]
+        [AllureTms("Login-1.2")]
+        [AllureTag("Smoke")]
+        [AllureLink("https://www.saucedemo.com/")]
+        [Description("Verifying that standart user with invalid username and/or password can not login. Error is appeared")]
+        public void IncorrectLogin_StandartUserWithIncorrectName()
         {
-            //Var
-            UserBuilder builder = new UserBuilder();
-
-            User standartUserWithIncorrectPassword = builder
-                .SetName("standard_user")
-                .SetPassword("secret_sauce_1")
-                .Build();
+            //Var          
             var expectedError = "Epic sadface: Username and password do not match any user in this service";
 
             //Action
-            var loginPage = new LoginPage(Driver, true)
-                .IncorrectLogin(standartUserWithIncorrectPassword);
+            NavigationStep.NavigateToLoginPage();
+
+            var loginPage = NavigationStep.StandartUserWithIncorrectCredentialsLogin();
 
             //Assert
             Assert.Multiple(() =>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -38,12 +38,14 @@
     <None Remove="BaseEntities\" />
     <None Remove="appsettings.json" />
     <None Remove="allureConfig.json" />
+    <None Remove="Steps\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrappers\" />
     <Folder Include="Page\" />
     <Folder Include="Test\" />
     <Folder Include="BaseEntities\" />
+    <Folder Include="Steps\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">

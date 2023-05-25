@@ -2,11 +2,16 @@
 using Bogus;
 using NUnit.Framework;
 using Core.Models;
+using Core.Utilities.Helpers;
+using Core.Utilities.Configuration;
 
 namespace Core.Models.Builder
 {
     public class UserBuilder
     {
+        public static User StandartUser => Configurator.UserByUsername("standard_user")!;
+        public static User StandartUserWithInvalidName => Configurator.UserByUsername("standart_user_invalid")!;
+
         private User user;
 
         public UserBuilder()
