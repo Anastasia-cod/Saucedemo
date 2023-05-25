@@ -3,12 +3,24 @@ using Core.Models;
 using SauceDemo.Page;
 using SauceDemo.BaseEntities;
 using Core.Models.Builder;
+using NUnit.Allure.Core;
+using Allure.Commons;
+using NUnit.Allure.Attributes;
 
 namespace SauceDemo.Test
 {
     public class LoginTest : BaseTest
     {
-        [Test, Category("Positive")]
+        [Test(Description = "Successful login")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureOwner("User")]
+        [AllureSuite("PassedSuite")]
+        [AllureSubSuite("GUI")]
+        [AllureIssue("TMS-12")]
+        [AllureTms("TMS-13")]
+        [AllureTag("Smoke")]
+        [AllureLink("https://onliner.by")]
+        [Description("Более детализированное описание теста")]
         public void SuccessfullLogin_StandartUser()
         {
             //Var

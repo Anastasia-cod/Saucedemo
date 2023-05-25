@@ -3,6 +3,7 @@ using Core.Models;
 using SauceDemo.Page;
 using SauceDemo.BaseEntities;
 using Core.Models.Builder;
+using NUnit.Allure.Core;
 
 namespace SauceDemo.Test
 {
