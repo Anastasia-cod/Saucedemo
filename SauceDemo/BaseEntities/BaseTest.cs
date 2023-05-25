@@ -3,10 +3,10 @@ using Allure.Commons;
 using Core;
 using Core.Utilities.Configuration;
 using NUnit.Allure.Core;
+using NLog;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SauceDemo.Page;
-using SauceDemo.Steps;
 using SauceDemo.Steps;
 
 namespace SauceDemo.BaseEntities
@@ -14,6 +14,7 @@ namespace SauceDemo.BaseEntities
     [AllureNUnit]
     public class BaseTest
     {
+        private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
         public static readonly string? BaseUrl = Configurator.AppSettings.URL;
 
         protected static IWebDriver? Driver;
@@ -27,6 +28,13 @@ namespace SauceDemo.BaseEntities
         [SetUp]
         public void SetUp()
         {
+            _logger.Trace("Message level Trace");
+            _logger.Debug("Message level Debug");
+            _logger.Info("Message level Info");
+            _logger.Warn("Message level Warn");
+            _logger.Error("Message level Error");
+            _logger.Fatal("Message level Fatal");
+
             Driver = new Browser().Driver;
             WaitService = new WaitService(Driver);
 

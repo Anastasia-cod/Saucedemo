@@ -31,6 +31,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="NLog" Version="5.1.4" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Utilities\" />

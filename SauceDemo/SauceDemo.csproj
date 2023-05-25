@@ -26,6 +26,8 @@
     <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="NUnit.Allure" Version="1.2.1.1" />
+    <PackageReference Include="NLog" Version="5.1.4" />
+    <PackageReference Include="NLog.Config" Version="4.7.15" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,6 +60,16 @@
     </Content>
     <Content Include="allureConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="$(NuGetPackageRoot)nlog.config/4.7.15/contentFiles/any/any/NLog.config" Condition="Exists('$(NuGetPackageRoot)nlog.config/4.7.15/contentFiles/any/any/NLog.config')">
+      <NuGetPackageId>NLog.Config</NuGetPackageId>
+      <NuGetPackageVersion>4.7.15</NuGetPackageVersion>
+      <NuGetItemType>None</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>NLog.config</TargetPath>
+      <Private>True</Private>
+      <Link>NLog.config</Link>
     </Content>
   </ItemGroup>
 </Project>
