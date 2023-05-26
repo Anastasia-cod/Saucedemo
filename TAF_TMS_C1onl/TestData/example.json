@@ -1,0 +1,23 @@
+﻿{
+  "age": 1,
+  "firstname": "Anastasiya",
+  "isActive": "true",
+  "object": "null",
+  "user": {
+    "lastName": "Zayats",
+    "department": "GM"
+  },
+  "array": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ]
+}  
+
+
