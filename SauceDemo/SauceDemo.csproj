@@ -41,6 +41,7 @@
     <None Remove="appsettings.json" />
     <None Remove="allureConfig.json" />
     <None Remove="Steps\" />
+    <None Remove="TestData\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Wrappers\" />
@@ -48,6 +49,7 @@
     <Folder Include="Test\" />
     <Folder Include="BaseEntities\" />
     <Folder Include="Steps\" />
+    <Folder Include="TestData\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.json">
