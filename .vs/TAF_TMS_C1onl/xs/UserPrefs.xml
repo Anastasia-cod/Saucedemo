@@ -1,43 +1,47 @@
 ﻿<Properties StartupConfiguration="{A759F629-8EDA-4309-8749-85D9A110EF47}|Default">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.TAF__TMS__C1onl PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TAF_TMS_C1onl/Tests/API/RegressTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TAF_TMS_C1onl/Services/BaseService.cs">
     <Files>
-      <File FileName="TAF_TMS_C1onl/Utilites/Configuration/Configurator.cs" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Configuration/Configurator.cs" Line="1" Column="1" />
       <File FileName="TAF_TMS_C1onl/Utilites/Configuration/AppSettings.cs" />
-      <File FileName="TAF_TMS_C1onl/TestData/GeneralProject.json" Line="1" Column="1" />
-      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/TestDataHelper.cs" Line="12" Column="79" />
-      <File FileName="TAF_TMS_C1onl/appsettings.json" />
-      <File FileName="TAF_TMS_C1onl/Tests/ProjectsTest.cs" />
+      <File FileName="TAF_TMS_C1onl/TestData/GeneralProject.json" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/TestDataHelper.cs" />
+      <File FileName="TAF_TMS_C1onl/appsettings.json" Line="24" Column="29" />
       <File FileName="TAF_TMS_C1onl/allureConfig.json" />
       <File FileName="TAF_TMS_C1onl/Wrappers/Button.cs" />
       <File FileName="TAF_TMS_C1onl/Wrappers/Input.cs" />
       <File FileName="TAF_TMS_C1onl/Wrappers/Table.cs" />
       <File FileName="TAF_TMS_C1onl/Wrappers/TableRow.cs" />
       <File FileName="TAF_TMS_C1onl/Wrappers/UIElement.cs" />
-      <File FileName="TAF_TMS_C1onl/Tests/LoginTest.cs" />
-      <File FileName="TAF_TMS_C1onl/Tests/BaseTest.cs" />
       <File FileName="TAF_TMS_C1onl/Steps/BaseStep.cs" />
-      <File FileName="TAF_TMS_C1onl/Steps/NavigationSteps.cs" />
+      <File FileName="TAF_TMS_C1onl/Steps/NavigationSteps.cs" Line="1" Column="1" />
       <File FileName="TAF_TMS_C1onl/Attributes.cs" />
-      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/JsonHelper.cs" Line="1" Column="1" />
-      <File FileName="TAF_TMS_C1onl/NLog.config" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Helpers/JsonHelper.cs" />
+      <File FileName="TAF_TMS_C1onl/NLog.config" Line="1" Column="1" />
       <File FileName="TAF_TMS_C1onl/Pages/LoginPage.cs" />
       <File FileName="TAF_TMS_C1onl/Pages/AddProjectPage.cs" />
       <File FileName="TAF_TMS_C1onl/TAF_TMS_C1onl.csproj" />
       <File FileName="TAF_TMS_C1onl/Core/Browser.cs" />
       <File FileName="TAF_TMS_C1onl/Core/DriverFactory.cs" />
       <File FileName="TAF_TMS_C1onl/Models/Enums/ProjectType.cs" />
-      <File FileName="TAF_TMS_C1onl/Models/Project.cs" />
-      <File FileName="TAF_TMS_C1onl/Models/User.cs" />
+      <File FileName="TAF_TMS_C1onl/Models/User.cs" Line="1" Column="1" />
       <File FileName="TAF_TMS_C1onl/Pages/BasePage.cs" />
       <File FileName="TAF_TMS_C1onl/Pages/DashboardPage.cs" />
       <File FileName="TAF_TMS_C1onl/Steps/ProjectSteps.cs" />
-      <File FileName="TAF_TMS_C1onl/TestData/example.json" Line="21" Column="2" />
-      <File FileName="TAF_TMS_C1onl/TestData/example.xml" Line="23" Column="13" />
-      <File FileName="TAF_TMS_C1onl/Tests/API/RegressTest.cs" Line="133" Column="10" />
-      <File FileName="TAF_TMS_C1onl/TestData/CreateUser.json" Line="5" Column="1" />
+      <File FileName="TAF_TMS_C1onl/TestData/example.json" />
+      <File FileName="TAF_TMS_C1onl/TestData/example.xml" />
+      <File FileName="TAF_TMS_C1onl/Tests/API/RegressTest.cs" Line="106" Column="66" />
+      <File FileName="TAF_TMS_C1onl/Clients/ApiClient.cs" Line="56" Column="1" />
+      <File FileName="TAF_TMS_C1onl/Services/BaseService.cs" Line="13" Column="4" />
+      <File FileName="TAF_TMS_C1onl/Services/ProjectService.cs" Line="57" Column="46" />
+      <File FileName="TAF_TMS_C1onl/Tests/API/ProjectsTest.cs" Line="92" Column="72" />
+      <File FileName="TAF_TMS_C1onl/Tests/API/BaseApiTest.cs" Line="16" Column="51" />
+      <File FileName="TAF_TMS_C1onl/Models/Project.cs" Line="29" Column="10" />
+      <File FileName="TAF_TMS_C1onl/TestData/tmp.json" Line="9" Column="27" />
+      <File FileName="TAF_TMS_C1onl/Utilites/Configuration/Endpoints.cs" Line="6" Column="92" />
+      <File FileName="TAF_TMS_C1onl/Models/Group.cs" Line="6" Column="29" />
+      <File FileName="TAF_TMS_C1onl/Tests/GUI/ProjectsTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -48,11 +52,9 @@
                 <Node name="FrameworkReferences" expanded="True" />
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="Core" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Enums" expanded="True" />
-              </Node>
-              <Node name="Pages" expanded="True" />
+              <Node name="Clients" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="Steps" expanded="True" />
               <Node name="TestData" expanded="True" />
               <Node name="Tests" expanded="True">
@@ -62,18 +64,18 @@
                 <Node name="Configuration" expanded="True" />
                 <Node name="Helpers" expanded="True" />
               </Node>
-              <Node name="Wrappers" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
         <State name="__root__">
-          <Node name="TAF_TMS_C1onl" expanded="True" />
+          <Node name="TAF_TMS_C1onl" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

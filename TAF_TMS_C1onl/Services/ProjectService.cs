@@ -1,8 +1,10 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using TAF_TMS_C1onl.Clients;
 using TAF_TMS_C1onl.Models;
 using TAF_TMS_C1onl.Utilites.Configuration;
+using TAF_TMS_C1onl.Utilites.Helpers;
 
 namespace TAF_TMS_C1onl.Services
 {
@@ -47,14 +49,21 @@ namespace TAF_TMS_C1onl.Services
             return _apiClient.ExecuteAsync<Project>(request);
         }
 
-        public RestResponse GetProjects(string projectId)
-        {
-            return null;
-        }
+        //public List<Project> GetProjects(string projectId)
+        //{
+        //    var request = new RestRequest("index.php?/api/v2/get_projects");
+        //    var response = _apiClient.Execute(request);
+        //    var json = JObject.Parse(response.Content).SelectToken("$.projects");
+        //    return JsonHelper.FromJson(json);
+        //}
 
-        public RestResponse AddProject(Project project)
+        public Task<Project> AddProjectAsync(Project project)
         {
-            return null;
+            var request = new RestRequest("index.php?/api/v2/add_project", Method.Post)
+                .AddHeader("Content-Type", "application/json")
+                .AddBody(project);
+
+            return _apiClient.ExecuteAsync<Project>(request);
         }
 
         public RestResponse UpdateProject(string projectId, Project project)

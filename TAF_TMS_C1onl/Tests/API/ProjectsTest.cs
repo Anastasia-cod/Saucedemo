@@ -83,6 +83,20 @@ namespace TAF_TMS_C1onl.Tests.API
             var actualProject = _projectService.GetAsProjectAsync("1");
             _logger.Info("jsonObject2 -> name: " + actualProject.Result.Name);
         }
+
+        [Test]
+        public void AddProjectTest_1()
+        {
+            var expectedProject = new Project();
+            expectedProject.Name = "Test Project 2";
+            expectedProject.Announcement = "Description Test 2Project";
+            expectedProject.SuiteMode = 2;
+
+            var actualProject = _projectService.AddProjectAsync(expectedProject);
+            _logger.Info("ActualProject: " + actualProject.Result.ToString());
+
+            Assert.AreEqual(expectedProject.Name, actualProject.Result.Name);
+        }
     }
 }
 
