@@ -24,6 +24,7 @@
         <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
         <PackageReference Include="WebDriverManager" Version="2.16.2" />
         <PackageReference Include="RestSharp" Version="110.2.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -49,10 +50,14 @@
       <Content Include="TestData\CreateUser.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Clients\" />
+      <None Remove="Services\" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Tests\GUI\" />
       <Folder Include="Tests\API\" />
+      <Folder Include="Clients\" />
+      <Folder Include="Services\" />
     </ItemGroup>
 </Project>
