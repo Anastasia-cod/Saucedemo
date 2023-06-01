@@ -31,7 +31,7 @@ namespace TAF_TMS_C1onl.Tests.API
             _logger.Info("jsonObject1 -> name: " + value);
 
             var value2 = jsonObject2.SelectToken("$.name");
-            _logger.Info("jsonObject2 -> name: " + value);
+            _logger.Info("jsonObject2 -> name: " + value2);
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace TAF_TMS_C1onl.Tests.API
             _logger.Info("jsonObject1 -> name: " + value);
 
             var value2 = jsonObject2.SelectToken("$.name");
-            _logger.Info("jsonObject2 -> name: " + value);
+            _logger.Info("jsonObject2 -> name: " + value2);
         }
 
         [Test]
@@ -74,7 +74,7 @@ namespace TAF_TMS_C1onl.Tests.API
             _logger.Info("jsonObject1 -> name: " + value);
 
             var value2 = jsonObject2.SelectToken("$.name");
-            _logger.Info("jsonObject2 -> name: " + value);
+            _logger.Info("jsonObject2 -> name: " + value2);
         }
 
         [Test]

@@ -8,17 +8,17 @@ using TAF_TMS_C1onl.Utilites.Helpers;
 
 namespace TAF_TMS_C1onl.Services
 {
-	public class ProjectService : BaseService
-	{
+    public class ProjectService : BaseService
+    {
         public static readonly string GET_PROJECT = "index.php?/api/v2/get_project/{project_id}";
 
         public ProjectService(ApiClient apiClient) : base(apiClient)
-		{
+        {
 
-		}
+        }
 
-		public RestResponse GetProject(string projectId)
-		{
+        public RestResponse GetProject(string projectId)
+        {
             var request = new RestRequest(GET_PROJECT)
                 .AddUrlSegment("project_id", projectId);
 

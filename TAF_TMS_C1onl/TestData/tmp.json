@@ -10,4 +10,32 @@
   "url": "https:\/\/aqac01onl01.testrail.io\/index.php?\/projects\/overview\/1",
   "users": [],
   "groups": []
+
+  {
+    "id": 2,
+    "title": "Anastasiya Test Case",
+    "section_id": 1,
+    "template_id": 1,
+    "type_id": 7,
+    "priority_id": 3,
+    "milestone_id": null,
+    "refs": null,
+    "created_by": 1,
+    "created_on": 1685631196,
+    "updated_by": 1,
+    "updated_on": 1685631196,
+    "estimate": null,
+    "estimate_forecast": null,
+    "suite_id": 15,
+    "display_order": 2,
+    "is_deleted": 0,
+    "custom_automation_type": 0,
+    "custom_preconds": "Test preconditions",
+    "custom_steps": "Test steps",
+    "custom_testrail_bdd_scenario": null,
+    "custom_expected": "Test expected result",
+    "custom_steps_separated": null,
+    "custom_mission": null,
+    "custom_goals": null
+  }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NLog;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -6,8 +7,8 @@ using TAF_TMS_C1onl.Utilites.Configuration;
 
 namespace TAF_TMS_C1onl.Clients
 {
-	public class ApiClient
-	{
+    public class ApiClient
+    {
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         private readonly RestClient _restClient;
