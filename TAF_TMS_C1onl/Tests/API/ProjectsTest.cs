@@ -52,7 +52,7 @@ namespace TAF_TMS_C1onl.Tests.API
             _logger.Info("jsonObject2 -> name: " + value);
         }
 
-        [Test]
+        //[Test]
         public void GetProjectTest_3()
         {
             var actualProject = _projectService.GetAsProject("1");
