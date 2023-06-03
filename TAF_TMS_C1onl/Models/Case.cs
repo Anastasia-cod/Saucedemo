@@ -23,18 +23,18 @@ namespace TAF_TMS_C1onl.Models
         [JsonPropertyName("estimate_forecast")] public string EstimateForecast { get; set; }
         [JsonPropertyName("suite_id")] public int SuiteId { get; set; }
 
-        [JsonPropertyName("custom_preconds")] public string CustomPreconds { get; set; }
-        [JsonPropertyName("custom_steps")] public string CustomSteps { get; set; }
-        [JsonPropertyName("custom_expected")] public string CustomExpected { get; set; }
+        //[JsonPropertyName("custom_preconds")] public string CustomPreconds { get; set; }
+        //[JsonPropertyName("custom_steps")] public string CustomSteps { get; set; }
+        //[JsonPropertyName("custom_expected")] public string CustomExpected { get; set; }
 
         protected bool Equals(Case other)
         {
-            return SectionId == other.SectionId && Title == other.Title && TemplateId == other.TemplateId && TypeId == other.TypeId && CustomPreconds == other.CustomPreconds && CustomSteps == other.CustomSteps && CustomExpected == other.CustomExpected;
+            return Title == other.Title && SectionId == other.SectionId && TemplateId == other.TemplateId && CreatedBy == other.CreatedBy && CreatedOn == other.CreatedOn && UpdatedBy == other.UpdatedBy && UpdatedOn == other.UpdatedOn && Estimate == other.Estimate;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Title);
+            return HashCode.Combine(Title, SectionId, TemplateId, CreatedBy, CreatedOn, UpdatedBy, UpdatedOn, Estimate);
         }
 
         public override bool Equals(object? obj)
@@ -42,13 +42,13 @@ namespace TAF_TMS_C1onl.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             return Equals((Case)obj);
         }
 
         public override string ToString()
         {
-            return $"{nameof(Id)}: {Id}, {nameof(Title)}: {Title}, {nameof(SectionId)}: {SectionId}, {nameof(TemplateId)}: {TemplateId}, {nameof(TypeId)}: {TypeId}, {nameof(PriorityId)}: {PriorityId}, {nameof(Estimate)}: {Estimate}, {nameof(Refs)}: {Refs},";
+            return $"\n {nameof(Id)}: {Id},\n {nameof(Title)}: {Title},\n {nameof(SectionId)}: {SectionId},\n {nameof(TemplateId)}: {TemplateId},\n {nameof(TypeId)}: {TypeId}, \n {nameof(PriorityId)}: {PriorityId},\n {nameof(Estimate)}: {Estimate},\n {nameof(CreatedBy)}: {CreatedBy},\n {nameof(CreatedOn)}: {CreatedOn},\n {nameof(UpdatedBy)}: {UpdatedBy},\n {nameof(UpdatedOn)}: {UpdatedOn}";
         }
     }
 }
-

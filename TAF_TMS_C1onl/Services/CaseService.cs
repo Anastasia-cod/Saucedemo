@@ -56,14 +56,14 @@ namespace TAF_TMS_C1onl.Services
             return _apiClient.Execute<Case>(request);
         }
 
-        public Case DeleteCase(int caseId, Case caseA)
+        public RestResponse DeleteCase(int caseId)
         {
             var request = new RestRequest(DELETE_CASE, Method.Post)
                 .AddUrlSegment("case_id", caseId)
                 .AddHeader("Content-Type", "application/json")
-                .AddBody(caseA);
+                .AddBody("");
 
-            return _apiClient.Execute<Case>(request);
+            return _apiClient.Execute(request);
         }
     }
 }

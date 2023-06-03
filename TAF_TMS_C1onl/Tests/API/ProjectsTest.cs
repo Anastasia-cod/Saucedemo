@@ -88,8 +88,8 @@ namespace TAF_TMS_C1onl.Tests.API
         public void AddProjectTest_1()
         {
             var expectedProject = new Project();
-            expectedProject.Name = "Test Project 2";
-            expectedProject.Announcement = "Description Test 2Project";
+            expectedProject.Name = "NOT DELETE Project Anastasiya";
+            expectedProject.Announcement = "NOT DELETE Project Anastasiya";
             expectedProject.SuiteMode = 2;
 
             var actualProject = _projectService.AddProjectAsync(expectedProject);
