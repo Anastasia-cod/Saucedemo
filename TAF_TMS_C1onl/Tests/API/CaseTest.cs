@@ -13,26 +13,36 @@ namespace TAF_TMS_C1onl.Tests.API
 {
     public class CaseTest : BaseApiTest
     {
-        protected Case pathForGetCase = TestDataHelper.GetTestCase("GetCase.json");
-        protected Case pathForCreateCase = TestDataHelper.GetTestCase("CreateCase.json");
-        protected Case pathForUpdateCase = TestDataHelper.GetTestCase("UpdateCase.json");
+        protected Case expectedCaseForCreate = TestDataHelper.GetTestCase("CreateCase.json");
+        protected Case expectedCaseForUpdate = TestDataHelper.GetTestCase("UpdateCase.json");
 
         private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 
         [Test]
+        public void AddCaseTest()
+        {
+            var actualCase = _caseService.AddCase(expectedCaseForCreate.SectionId, expectedCaseForCreate);
+            _logger.Info("Actual Case: " + actualCase.ToString());
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(actualCase.Title, Is.EqualTo(expectedCaseForCreate.Title));
+                Assert.That(actualCase.SectionId, Is.EqualTo(expectedCaseForCreate.SectionId));
+                Assert.That(actualCase.TemplateId, Is.EqualTo(expectedCaseForCreate.TemplateId));
+                Assert.That(actualCase.TypeId, Is.EqualTo(expectedCaseForCreate.TypeId));
+                Assert.That(actualCase.PriorityId, Is.EqualTo(expectedCaseForCreate.PriorityId));
+                Assert.That(actualCase.Estimate, Is.EqualTo(expectedCaseForCreate.Estimate));
+            });
+        }
+
+        [Test]
         public void GetCaseTest()
         {
-            var expectedCase = new Case();
-            expectedCase.Id = pathForGetCase.Id;
-            expectedCase.Title = pathForGetCase.Title;
-            expectedCase.SectionId = pathForGetCase.SectionId;
-            expectedCase.TemplateId = pathForGetCase.TemplateId;
-            expectedCase.TypeId = pathForGetCase.TypeId;
-            expectedCase.PriorityId = pathForGetCase.PriorityId;
-            expectedCase.Estimate = pathForGetCase.Estimate;
+            var expectedCase = _caseService.AddCase(expectedCaseForCreate.SectionId, expectedCaseForCreate);
+            _logger.Info("Expected Added Case:\n " + expectedCase.ToString());
 
-            var actualCase = _caseService.GetAsCase(pathForGetCase.Id);
-            _logger.Info($"jsonObject:\n " + actualCase.ToString());
+            var actualCase = _caseService.GetAsCase(expectedCase.Id);
+            _logger.Info($"Actual Case:\n " + actualCase.ToString());
 
             Assert.Multiple(() =>
             {
@@ -46,94 +56,46 @@ namespace TAF_TMS_C1onl.Tests.API
             });
         }
 
-        [Test]
-        public void AddCaseTest()
-        {
-            var expectedCase = new Case();
-            expectedCase.Title = pathForCreateCase.Title;
-            expectedCase.SectionId = pathForCreateCase.SectionId;
-            expectedCase.TemplateId = pathForCreateCase.TemplateId;
-            expectedCase.TypeId = pathForCreateCase.TypeId;
-            expectedCase.PriorityId = pathForCreateCase.PriorityId;
-            expectedCase.Estimate = pathForCreateCase.Estimate;
-
-            var actualCase = _caseService.AddCase(pathForCreateCase.SectionId, expectedCase);
-            _logger.Info("Actual Case: " + actualCase.ToString());
-
-            Assert.Multiple(() =>
-            {
-                Assert.That(actualCase.Title, Is.EqualTo(expectedCase.Title));
-                Assert.That(actualCase.SectionId, Is.EqualTo(expectedCase.SectionId));
-                Assert.That(actualCase.TemplateId, Is.EqualTo(expectedCase.TemplateId));
-                Assert.That(actualCase.TypeId, Is.EqualTo(expectedCase.TypeId));
-                Assert.That(actualCase.PriorityId, Is.EqualTo(expectedCase.PriorityId));
-                Assert.That(actualCase.Estimate, Is.EqualTo(expectedCase.Estimate));
-            });
-        }
-
         //BAD REQUEST?!!
         //[Test]
         public void UpdateCaseTest()
         {
-            var addedCase = new Case();
-            addedCase.Title = pathForCreateCase.Title + " FOR UPDATE";
-            addedCase.SectionId = pathForCreateCase.SectionId;
-            addedCase.TemplateId = pathForCreateCase.TemplateId;
-            addedCase.TypeId = pathForCreateCase.TypeId;
-            addedCase.PriorityId = pathForCreateCase.PriorityId;
-            addedCase.Estimate = pathForCreateCase.Estimate;
+            var addedCase = _caseService.AddCase(expectedCaseForCreate.SectionId, expectedCaseForCreate);
+            _logger.Info("Added Case Before UPDATE: " + addedCase.ToString());
 
-            var newCase = _caseService.AddCase(pathForCreateCase.SectionId, addedCase);
-            _logger.Info("Added Case Before UPDATE: " + newCase.ToString());
-
-            var expectedCase = new Case();
-            expectedCase.Title = pathForUpdateCase.Title;
-            expectedCase.TypeId = pathForUpdateCase.TypeId;
-            expectedCase.PriorityId = pathForUpdateCase.PriorityId;
-            expectedCase.Estimate = pathForUpdateCase.Estimate;
-            expectedCase.Refs = pathForUpdateCase.Refs;
-
-            var actualCase = _caseService.UpdateCase(newCase.Id, expectedCase);
+            var actualCase = _caseService.UpdateCase(addedCase.Id, expectedCaseForUpdate);
             _logger.Info("Actual Case after UPDATE: " + actualCase.ToString());
 
             Assert.Multiple(() =>
             {
-                Assert.That(actualCase.Id, Is.EqualTo(newCase.Id));
-                Assert.That(actualCase.Title, Is.EqualTo(expectedCase.Title));
-                Assert.That(actualCase.TypeId, Is.EqualTo(expectedCase.TypeId));
-                Assert.That(actualCase.PriorityId, Is.EqualTo(expectedCase.PriorityId));
-                Assert.That(actualCase.Estimate, Is.EqualTo(expectedCase.Estimate));
-                Assert.That(actualCase.Refs, Is.EqualTo(expectedCase.Refs));
+                Assert.That(actualCase.Id, Is.EqualTo(addedCase.Id));
+                Assert.That(actualCase.Title, Is.EqualTo(expectedCaseForUpdate.Title));            
+                Assert.That(actualCase.TypeId, Is.EqualTo(expectedCaseForUpdate.TypeId));
+                Assert.That(actualCase.PriorityId, Is.EqualTo(expectedCaseForUpdate.PriorityId));
+                Assert.That(actualCase.Estimate, Is.EqualTo(expectedCaseForUpdate.Estimate));
             });
         }
 
         [Test]
         public void DeleteCaseTest()
         {
-            var addedCase = new Case();
-            addedCase.Title = pathForCreateCase.Title + " FOR DELETE";
-            addedCase.SectionId = pathForCreateCase.SectionId;
-            addedCase.TemplateId = pathForCreateCase.TemplateId;
-            addedCase.TypeId = pathForCreateCase.TypeId;
-            addedCase.PriorityId = pathForCreateCase.PriorityId;
-            addedCase.Estimate = pathForCreateCase.Estimate;
+            var addedCase = _caseService.AddCase(expectedCaseForCreate.SectionId, expectedCaseForCreate);
+            _logger.Info("Added Case Before DELETION: " + addedCase.ToString());
 
-            var newCase = _caseService.AddCase(pathForCreateCase.SectionId, addedCase);
-            _logger.Info("Added Case Before DELETION: " + newCase.ToString());
-
-            _caseService.DeleteCase(newCase.Id);
+            _caseService.DeleteCase(addedCase.Id);
             try
             {
-                _caseService.GetAsCase(newCase.Id);
+               var actualCase = _caseService.GetAsCase(addedCase.Id);
+               Assert.That(actualCase, Is.Null);
             }
             catch (HttpRequestException ex)
             {
-                _logger.Info(ex.Message);
+                _logger.Info("Message: " + ex.Message);
                 Assert.That(true);
             }
             catch (Exception ex)
             {
-                _logger.Info(ex.Message);
+                _logger.Info("Message: " + ex.Message);
                 Assert.That(false);
             }
         }

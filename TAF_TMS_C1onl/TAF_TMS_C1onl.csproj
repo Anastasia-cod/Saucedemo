@@ -56,10 +56,6 @@
       <Content Include="TestData\CreateCase.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
-      <None Remove="TestData\GetCase.json" />
-      <Content Include="TestData\GetCase.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
       <None Remove="TestData\UpdateCase.json" />
       <Content Include="TestData\UpdateCase.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

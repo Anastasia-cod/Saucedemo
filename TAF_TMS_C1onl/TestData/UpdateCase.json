@@ -1,8 +1,6 @@
 ﻿{
-  "title": "UPDATE TEST CASE ANASTASIYA",
-  "section_id": 1,
-  "template_id": 1,
-  "type_id": 8,
+  "title": "UPDATE TEST CASE - VERIFY THAT CASE IS UPSATED",
+  "type_id": 7,
   "priority_id": 2,
-  "estimate": "12h"
+  "estimate": "6h"
 }
