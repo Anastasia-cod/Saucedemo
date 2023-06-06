@@ -11,13 +11,13 @@ public class NavigationSteps : BaseStep
     public NavigationSteps(IWebDriver driver) : base(driver) { }
 
 
-    [AllureStep("Navigate to Login page")]
+    //[AllureStep("Navigate to Login page")]
     public LoginPage NavigateToLoginPage()
     {
         return new LoginPage(Driver, true);
     }
     
-    [AllureStep]
+    //[AllureStep]
     public DashboardPage SuccessfulLogin(string username, string psw)
     {
         Login(username, psw);

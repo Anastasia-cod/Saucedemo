@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAF_TMS_C1onl", "TAF_TMS_C1onl\TAF_TMS_C1onl.csproj", "{A759F629-8EDA-4309-8749-85D9A110EF47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speckflow.Specs", "Speckflow.Specs\Speckflow.Specs.csproj", "{7C421751-887F-458D-8305-17731129140D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +15,9 @@ Global
 		{A759F629-8EDA-4309-8749-85D9A110EF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A759F629-8EDA-4309-8749-85D9A110EF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A759F629-8EDA-4309-8749-85D9A110EF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C421751-887F-458D-8305-17731129140D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C421751-887F-458D-8305-17731129140D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C421751-887F-458D-8305-17731129140D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C421751-887F-458D-8305-17731129140D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
