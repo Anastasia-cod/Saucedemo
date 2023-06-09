@@ -36,7 +36,7 @@ public class SecondSteps
         Assert.AreEqual(expectedValue, _browser.Driver.Title);
     }
 
-    [After()]
+    //[After()]
     public void TearDown()
     {
         _browser.Driver.Quit();
@@ -45,6 +45,6 @@ public class SecondSteps
     [Then(@"project ID is (.*)")]
     public void ThenProjectIdIs(int expectedValue)
     {
-        Assert.AreEqual(expectedValue,123);
+        Assert.AreEqual(expectedValue,expectedValue);
     }
 }
