@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Speckflow.Specs.Feature
+namespace Speckflow.Specs.Feature.HW.GUI
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace Speckflow.Specs.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Problems")]
-    public partial class ProblemsFeature
+    [NUnit.Framework.DescriptionAttribute("Create Project")]
+    public partial class CreateProjectFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Four.feature"
+#line 1 "CreatingProjectTest.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "Problems", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature/HW/GUI", "Create Project", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,16 +74,14 @@ namespace Speckflow.Specs.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Using different defs classes 1")]
+        [NUnit.Framework.DescriptionAttribute("Creating project in TestRail")]
         [NUnit.Framework.CategoryAttribute("GUI")]
-        [NUnit.Framework.CategoryAttribute("GeneralUser")]
-        public void UsingDifferentDefsClasses1()
+        public void CreatingProjectInTestRail()
         {
             string[] tagsOfScenario = new string[] {
-                    "GUI",
-                    "GeneralUser"};
+                    "GUI"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using different defs classes 1", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating project in TestRail", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 4
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,45 +99,22 @@ namespace Speckflow.Specs.Feature
         testRunner.And("a login page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 7
-        testRunner.And("the user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+        testRunner.When("the user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-        testRunner.Then("settings page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("dashboard page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Using different defs classes 2")]
-        [NUnit.Framework.CategoryAttribute("GeneralUser")]
-        public void UsingDifferentDefsClasses2()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "GeneralUser"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using different defs classes 2", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 9
+        testRunner.And("the current user switched to add project page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 10
+        testRunner.And("entered in the name field \"Anastasiya Project Test 2 - bdd\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
 #line 11
-    this.ScenarioInitialize(scenarioInfo);
+        testRunner.And("clicked the add project button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
 #line 12
-        testRunner.Given("new browser is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 13
-        testRunner.And("a login page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 14
-        testRunner.And("the user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-#line 15
-        testRunner.Then("settings page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("the new project is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

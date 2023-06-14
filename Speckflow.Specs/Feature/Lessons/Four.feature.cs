@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Speckflow.Specs.Feature
+namespace Speckflow.Specs.Feature.Lessons
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace Speckflow.Specs.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Use a background")]
-    public partial class UseABackgroundFeature
+    [NUnit.Framework.DescriptionAttribute("Problems")]
+    public partial class ProblemsFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-#line 1 "Third.feature"
+#line 1 "Four.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature", "Use a background", null, ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Feature/Lessons", "Problems", null, ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -73,26 +73,18 @@ namespace Speckflow.Specs.Feature
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 3
-    #line hidden
-#line 4
-        testRunner.Given("browser is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 5
-        testRunner.And("the login page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Test something positive")]
-        public void TestSomethingPositive()
+        [NUnit.Framework.DescriptionAttribute("Using different defs classes 1")]
+        [NUnit.Framework.CategoryAttribute("GUI")]
+        [NUnit.Framework.CategoryAttribute("GeneralUser")]
+        public void UsingDifferentDefsClasses1()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "GUI",
+                    "GeneralUser"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test something positive", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using different defs classes 1", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 4
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -102,26 +94,31 @@ namespace Speckflow.Specs.Feature
             else
             {
                 this.ScenarioStart();
-#line 3
-    this.FeatureBackground();
+#line 5
+        testRunner.Given("new browser is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 6
+        testRunner.And("a login page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 7
+        testRunner.And("the user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
 #line hidden
 #line 8
-        testRunner.When("user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 9
-        testRunner.Then("the title is \"All Projects - TestRail\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("settings page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Test something negative")]
-        public void TestSomethingNegative()
+        [NUnit.Framework.DescriptionAttribute("Using different defs classes 2")]
+        [NUnit.Framework.CategoryAttribute("GeneralUser")]
+        public void UsingDifferentDefsClasses2()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "GeneralUser"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Test something negative", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Using different defs classes 2", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -132,14 +129,17 @@ namespace Speckflow.Specs.Feature
             else
             {
                 this.ScenarioStart();
-#line 3
-    this.FeatureBackground();
-#line hidden
 #line 12
-        testRunner.When("user \"atrostyanko@gmail.com\" with password \"Qwertyu_2\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Given("new browser is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
-        testRunner.Then("the title is \"Login - TestRail\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.And("a login page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 14
+        testRunner.And("the user \"atrostyanko@gmail.com\" with password \"Qwertyu_1\" logged in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "* ");
+#line hidden
+#line 15
+        testRunner.Then("settings page is opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

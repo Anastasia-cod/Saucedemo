@@ -28,5 +28,32 @@
     <None Remove="Steps\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Feature\Lessons\First.feature.cs">
+      <DependentUpon>First.feature</DependentUpon>
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <Visible>true</Visible>
+    </Compile>
+    <Compile Update="Feature\Lessons\Four.feature.cs">
+      <DependentUpon>Four.feature</DependentUpon>
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <Visible>true</Visible>
+    </Compile>
+    <Compile Update="Feature\Lessons\Second.feature.cs">
+      <DependentUpon>Second.feature</DependentUpon>
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <Visible>true</Visible>
+    </Compile>
+    <Compile Update="Feature\Lessons\Third.feature.cs">
+      <DependentUpon>Third.feature</DependentUpon>
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <Visible>true</Visible>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Feature\HW\API\" />
   </ItemGroup>
 </Project>

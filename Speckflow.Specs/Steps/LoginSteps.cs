@@ -31,8 +31,8 @@ public class LoginSteps : BaseSteps
         //third
         _navigationSteps.NavigateToLoginPage();
     }
-
-    [Given(@"the user ""(.*)"" with password ""(.*)"" logged in")]
+    
+    [When(@"the user ""(.*)"" with password ""(.*)"" logged in")]
     public void TheUserWithPasswordLoggedIn(string username, string password)
     {
         _navigationSteps.SuccessfulLogin(username, password);

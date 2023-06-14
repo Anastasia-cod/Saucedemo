@@ -15,8 +15,20 @@ public class ProjectSteps : BaseStep
         new AddProjectPage(Driver, true);
     }
     
+    public void FillInProjectNameField(string projectName)
+    {
+        AddProjectPage.NameInput.SendKeys(projectName);
+    }
+    
+    public void ClickAddNewProjectButton()
+    {
+        AddProjectPage.AddProjectButton().Click();
+    }
+    
     public void CreateProject(Project project)
     {
-        
+        AddProjectPage.NameInput.SendKeys(project.Name);
+        AddProjectPage.AddProjectButton().Click();
     }
+    
 }
