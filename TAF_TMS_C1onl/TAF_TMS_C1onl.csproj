@@ -61,6 +61,5 @@
       <Folder Include="Tests\GUI\" />
       <Folder Include="Tests\API\" />
       <Folder Include="Clients\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 </Project>

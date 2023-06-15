@@ -53,7 +53,4 @@
       <Visible>true</Visible>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Feature\HW\API\" />
-  </ItemGroup>
 </Project>
