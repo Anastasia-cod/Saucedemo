@@ -63,13 +63,38 @@ public class CustomersService
         return actualList;
     }
 
-    public void AddCustomer(Customers customer)
+    public int AddCustomer(Customers customer)
     {
-        
+        var sqlQuery = "insert into public.customers(firstname, lastname, email, age) VALUES ($1, $2, $3, $4);";
+        using var cmd = new NpgsqlCommand(sqlQuery, _connection)
+        {
+            Parameters =
+            {
+                new() { Value = customer.FirstName },
+                new() { Value = customer.LastName },
+                new() { Value = customer.Email },
+                new() { Value = customer.Age },
+
+            }
+        };
+            
+        return cmd.ExecuteNonQuery();
     }
     
-    public void DeleteCustomer(Customers customer)
+    public int DeleteCustomer(string firstName, string lastName)
     {
+        var sqlQuery = "delete from public.customers where firstname = $1 and lastname = $2;";
+        
+        using var cmd = new NpgsqlCommand(sqlQuery, _connection)
+        {
+            Parameters =
+            {
+                new() { Value = firstName },
+                new() { Value = lastName },
+            }
+        };
+            
+        return cmd.ExecuteNonQuery();
     
     }
 }
